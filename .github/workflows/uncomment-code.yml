@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Uncomment code
         run: sed -i 's/\/\/ const posts = await fetchLatestPosts();/const posts = await fetchLatestPosts();/' index.js
@@ -25,5 +25,10 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add index.js
-          git commit -m "[GitHubAction] RSS Feed 불러오는 요청 주석 해제"
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit"
+          else
+            git commit -m "[GitHubAction] RSS Feed 불러오는 요청 주석 해제"
+            git push
           git push
+          fi
