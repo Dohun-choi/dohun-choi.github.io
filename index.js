@@ -86,7 +86,7 @@ window.addEventListener("load", async () => {
   postListElement.appendChild(loadingMessage);
 
   try {
-    // const posts = await fetchLatestPosts();
+    const posts = await fetchLatestPosts();
 
     // 로딩 스피너 삭제
     postListElement.removeChild(loadingSpinner);
