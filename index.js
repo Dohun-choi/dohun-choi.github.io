@@ -87,7 +87,7 @@ window.addEventListener("load", async () => {
 
   try {
     // 주석 해제 Start
-    // const posts = await fetchLatestPosts();
+    const posts = await fetchLatestPosts();
     // 주석 해제 End
 
     // 로딩 스피너 삭제
