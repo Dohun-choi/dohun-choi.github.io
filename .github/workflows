@@ -1,0 +1,25 @@
+name: Uncomment Code on Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  uncomment-code:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Uncomment code
+        run: sed -i 's/\/\/ const posts = await fetchLatestPosts();/const posts = await fetchLatestPosts();/' index.js
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add index.js
+          git commit -m "Uncomment code on merge"
+          git push
