@@ -86,7 +86,7 @@ window.addEventListener("load", async () => {
   postListElement.appendChild(loadingMessage);
 
   try {
-    const posts = await fetchLatestPosts();
+    // const posts = await fetchLatestPosts();
 
     posts.forEach((post) => {
       const listItem = document.createElement("li");
@@ -102,10 +102,11 @@ window.addEventListener("load", async () => {
     const errorMessage = document.createElement("p");
 
     if (error.message == 429) {
-      errorMessage.textContent =
-        "RSS GET 요청 제한 도달: 내일 다시 시도하거나 블로그를 직접 방문해주세요.";
+      errorMessage.innerHTML =
+        'RSS GET 요청 제한 도달: 한 시간 뒤에 다시 시도하거나 <a href="https://curt-poem.tistory.com/">블로그를 직접 방문</a>해주세요.';
     } else {
-      errorMessage.textContent = "현재 블로그의 최신 글을 가져올 수 없습니다.";
+      errorMessage.innerHTML =
+        '현재 <a href="https://curt-poem.tistory.com/">블로그의 최신 글</a>을 가져올 수 없습니다.';
     }
     postListElement.appendChild(errorMessage);
   } finally {
