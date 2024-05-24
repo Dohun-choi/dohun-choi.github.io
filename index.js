@@ -99,7 +99,7 @@ window.addEventListener("load", async () => {
     });
   } catch (error) {
     console.error("최신 글을 가져오는 중 오류가 발생했습니다.", error);
-    const errorMessage = document.createElement("p");
+    const errorMessage = document.createElement("li");
 
     if (error.message == 429) {
       errorMessage.innerHTML =
@@ -121,6 +121,11 @@ window.addEventListener("load", async () => {
 
 // Web Component
 const hiddenShadowDom = "open";
+
+const getSkillImageDir = (skillName) =>
+  `./images/skills/${skillName.replace(/\s+/g, "")}.svg`;
+const getProjectImageDir = (projectName) =>
+  `./images/projects/${projectName.replace(/\s+/g, "")}.webp`;
 
 class skill extends HTMLElement {
   static get observedAttributes() {
@@ -157,14 +162,11 @@ class skill extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
     <style>
-    :host {
-      display: block;
-    }
     .skill-component-row {
       display: flex;
       flex-direction: row;
     }
-    .skill-component-bold-center {
+    .skill-component-container {
       font-weight: bold;
       align-items: center;
     }
@@ -204,19 +206,24 @@ class skill extends HTMLElement {
       border: 1px black solid;
      }
     </style>
-
-    <div class="skill-component-row skill-component-bold-center">
-      <img class="skill-component-small-img" src="./images/${name}.svg" height="30px"/>
-      <p>${name}</p>
-      <p class="skill-component-left-margin skill-component-period">${
-        period ? `${period} 경력` : ""
-      }</p>
-      <p class="skill-component-left-margin">${rectangles}</p>
-    </div>
-    <div class="skill-component-row">
-      <img class="skill-component-img" src="./images/${name}.svg" height="50px"/>
-      <slot></slot>
-    </div>
+    <article>
+      <div class="skill-component-row skill-component-container">
+        <img class="skill-component-small-img" src="${getSkillImageDir(
+          name
+        )}" height="30px" alt="${name}아이콘"/>
+        <p>${name}</p>
+        <p class="skill-component-left-margin skill-component-period">${
+          period ? `${period} 경력` : ""
+        }</p>
+        <p class="skill-component-left-margin">${rectangles}</p>
+      </div>
+      <div class="skill-component-row">
+        <img class="skill-component-img" src="${getSkillImageDir(
+          name
+        )}" height="50px" alt="${name}아이콘"/>
+        <slot></slot>
+      </div>
+    </article>
     `;
   }
 }
@@ -241,15 +248,22 @@ class Project extends HTMLElement {
 
     const name = this.getAttribute("name") ?? "name 속성이 지정되지 않음";
     const skill = this.getAttribute("skill") ?? "skill 속성 지정되지 않음";
-    const projectDescription =
-      this.getAttribute("projectDescription") ??
-      "projectDescription이 지정되지 않음";
+    const projectSummary =
+      this.getAttribute("projectSummary") ??
+      "projectSummary 속성 지정되지 않음";
+    const projectDescription = this.getAttribute("projectDescription") ?? "";
     const imgSrc = this.getAttribute("imgSrc");
+    const reverse = this.getAttribute("reverse") !== null;
 
     this.shadowRoot.innerHTML = `
     <style>
+    :host {
+      width: 100%;
+    }
     .project-component-container {
       display: flex;
+      justify-content: ${reverse ? "end" : "start"};
+      flex-direction: ${reverse ? "row-reverse" : "row"};
     }
     @media (max-width: 1000px) {
       .project-component-container {
@@ -260,6 +274,7 @@ class Project extends HTMLElement {
     .project-component-column {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
     .project-component-column > p {
       margin: 0px
@@ -270,25 +285,39 @@ class Project extends HTMLElement {
       align-items: center;
     }
     .project-component-img {
+      align-self: center;
       object-fit: contain;
+      margin-left: 5px;
+      margin-right: 10px;
+      border-radius: 30px;
+      overflow: hidden;
     }
     .project-component-name {
       font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .project-component-summary {
+      padding-bottom: 10px;
     }
     </style>
-    <div class="project-component-container">
-      <img src="${imgSrc}" height="400px" class="project-component-img">
+    <article class="project-component-container">
+      <img src="${
+        imgSrc ?? getProjectImageDir(name)
+      }" height="300px" width="300px" class="project-component-img" alt="${name} 로고">
       <div class="project-component-column">
         <p class="project-component-name">${name}</p>
-        <p>${projectDescription}</p>
-        <p class="project-component-name">역할</p>
+        <p class="project-component-summary">${projectSummary}</p>
+        <p class="project-component-summary">${projectDescription}</p>
         <div class="project-component-skill">
-          <img src="./images/${skill}.svg" height="40px" width="40px">
-          <p>${skill}</p>
+          <p class="project-component-name">역할</p>
+          <img class="project-component-img" src="${getSkillImageDir(
+            skill
+          )}" height="40px" width="40px" alt="${skill} 아이콘">
         </div>
+          <p><strong>${skill}</strong></p>
         <slot></slot>
       </div>
-    </div>
+    </article>
     `;
   }
 }

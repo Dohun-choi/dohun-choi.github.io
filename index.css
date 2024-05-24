@@ -178,16 +178,13 @@ nav {
   font-weight: bold;
 }
 
-.skill-ul {
+.skill-ul > li {
   list-style-type: none;
-}
-
-.skill-ul > li > p {
   overflow-wrap: break-word;
   white-space: wrap;
 }
 
-.skill-ul > li > p::before {
+.skill-ul > li::before {
   content: "►";
   color: black;
   display: inline-block;
@@ -233,4 +230,17 @@ nav {
   background-color: #fdfdfd;
   padding: 10px;
   border: 1px solid #010101;
+}
+
+.project-description > li {
+  font-size: 1.1rem;
+}
+
+.project-border > project-component {
+  padding: 30px;
+  border-bottom: 1px solid #000;
+}
+
+.project-border > project-component:last-child {
+  border: none;
 }

@@ -6,6 +6,7 @@
     <title>최도훈 포트폴리오</title>
     <link rel="stylesheet" href="./index.css">
     <script src="./index.js" type="module"></script>
+    <meta name="description" content="프론트엔드 개발자 최도훈의 포트폴리오">
   </head>
   <body>
 
@@ -26,13 +27,13 @@
     <div id="home" class="full flex flex-center flex-column">
       <div class="nav-height"></div>
 
-      <div style="flex-grow: 2;">
+      <header class="flex flex-column flex-center" style="flex-grow: 2;">
         <h1>개발자, 최도훈</h1>
         <div class="grid margin-20 center-text">
           <strong><a href="https://github.com/Dohun-choi">GitHub</a></strong>
           <strong><a href="https://curt-poem.tistory.com/">Blog</a></strong>
         </div>
-      </div>
+      </header>
       
       <div class="center-text" style="flex-grow: 3;">
         <h2 class="center-text">필요와 요구에 따라 문제를 창의적으로 해결하는 개발자</h2>
@@ -56,130 +57,169 @@
       
     </div>
 
-    <div id="skills" class="full flex flex-column flex-center">
-      <div class="center-for-focus">
-        <div class="nav-height"></div>
-        <h2>기술 스택</h2>
+    <main>
 
-        <div class="grid">
-          <skill-component name="JavaScript" level="5" period="7개월">
-            <ul class="skill-ul">
-              <li><p>클로저에 대해 이해하고 React의 useEffect 등에서 활용 경험</p></li>
-              <li><p>자바스크립트 비동기 실행 이해, async & await와 Promise를 사용한 코드 작성 가능</p></li>
-              <li><p>자바스크립트의 Call Stack, Web API,  Queue, Event Loop 사이의 동작 과정 이해</p></li>
-            </ul>
-          </skill-component>
+      <div id="skills" class="full flex flex-column flex-center">
+        <div class="center-for-focus">
+          <div class="nav-height"></div>
+          <h2>기술 스택</h2>
 
-          <skill-component name="TypeScript" level="5" period="6개월">
-            <ul class="skill-ul">
-              <li><p>요구와 필요에 따른 타입을 작성 가능</p></li>
-              <li><p>인터페이스, 제네릭, 레코드 등을 사용하여 명확한 타입 지정 가능</p></li>
-              <li><p>리액트 1회, 리액트 네이티브 1회의 프로젝트에서 any 사용 없이 타입 적용 경험</p></li>
-            </ul>
-          </skill-component>
+          <section class="grid">
+            <skill-component name="JavaScript" level="5" period="7개월">
+              <ul class="skill-ul">
+                <li>클로저에 대해 이해하고 React의 useEffect 등에서 활용 경험</li>
+                <li>자바스크립트 비동기 실행 이해, async & await와 Promise를 사용한 코드 작성 가능</li>
+                <li>자바스크립트의 Call Stack, Web API,  Queue, Event Loop 사이의 동작 과정 이해</li>
+              </ul>
+            </skill-component>
 
-          <skill-component name="React" level="4" period="6개월">
-            <ul class="skill-ul">
-              <li><p>useState 및 useEffect, Props와 관련된 리렌더링 과정 이해</p></li>
-              <li><p>리액트 useEffect의 동작원리를 이해하고 Side Effect 처리를 위해 사용 가능</p></li>
-              <li><p>React.Memo와 Lazy loading을 사용하여 로딩을 최적화한 프로젝트 진행 경험</p></li>
-            </ul>
-          </skill-component>
+            <skill-component name="TypeScript" level="5" period="6개월">
+              <ul class="skill-ul">
+                <li>요구와 필요에 따른 타입을 작성 가능</li>
+                <li>인터페이스, 제네릭, 레코드 등을 사용하여 명확한 타입 지정 가능</li>
+                <li>리액트 1회, 리액트 네이티브 1회의 프로젝트에서 any 사용 없이 타입 적용 경험</li>
+              </ul>
+            </skill-component>
 
-          <skill-component name="Flutter" level="3" period="1개월">
-            <ul class="skill-ul">
-              <li><p>MVVM 패턴을 적용하여 유지 및 보수가 용이한 프로젝트 진행 경험</p></li>
-              <li><p>Singleton 패턴을 적용한 경험</p></li>
-              <li><p>provider를 사용한 코드 작성이 가능하고 riverPod을 사용한 프로젝트 진행 경험</p></li>
-            </ul>
-          </skill-component>
+            <skill-component name="React" level="4" period="6개월">
+              <ul class="skill-ul">
+                <li>useState 및 useEffect, Props와 관련된 리렌더링 과정 이해</li>
+                <li>리액트 useEffect의 동작원리를 이해하고 Side Effect 처리를 위해 사용 가능</li>
+                <li>React.Memo와 Lazy loading을 사용하여 로딩을 최적화한 프로젝트 진행 경험</li>
+              </ul>
+            </skill-component>
 
-          <skill-component name="ReactNative" level="3" period="1개월">
-            <ul class="skill-ul">
-              <li><p>Expo를 활용한 개발 경험 및 bare ReactNative로 전환 경험</p></li>
-              <li><p>FSD 아키텍처를 프로젝트에 맞게 축소 및 조정하여 프로젝트를 진행한 경험</p></li>
-            </ul>
-          </skill-component>
+            <skill-component name="Flutter" level="3" period="1개월">
+              <ul class="skill-ul">
+                <li>MVVM 패턴을 적용하여 유지 및 보수가 용이한 프로젝트 진행 경험</li>
+                <li>Singleton 패턴을 적용한 경험</li>
+                <li>provider를 사용한 코드 작성이 가능하고 riverPod을 사용한 프로젝트 진행 경험</li>
+              </ul>
+            </skill-component>
 
-          <skill-component name="Next" level="2" period="1개월">
-            <ul class="skill-ul">
-              <li><p>app router를 사용하여 기본 route 및 dynamic, parallel, intercepting routing 가능</p></li>
-              <li><p>서버 컴포넌트와 클라이언트 컴포넌트를 구분하여 적절한 사용 가능</p></li>
-            </ul>
-          </skill-component>
+            <skill-component name="ReactNative" level="3" period="1개월">
+              <ul class="skill-ul">
+                <li>Expo를 활용한 개발 경험 및 bare ReactNative로 전환 경험</li>
+                <li>FSD 아키텍처를 프로젝트에 맞게 축소 및 조정하여 프로젝트를 진행한 경험</li>
+              </ul>
+            </skill-component>
 
-          <skill-component name="Vue" level="2" period="1개월">
-            <ul class="skill-ul">
-              <li><p>Life Cycle을 이해하고 기초 수준의 프로젝트 진행 가능</p></li>
-              <li><p>Pinia 등 vue의 기초적인 수준의 생태계 이해</p></li>
-            </ul>
-          </skill-component>
+            <skill-component name="Next" level="2" period="1개월">
+              <ul class="skill-ul">
+                <li>app router를 사용하여 기본 route 및 dynamic, parallel, intercepting routing 가능</li>
+                <li>서버 컴포넌트와 클라이언트 컴포넌트를 구분하여 적절한 사용 가능</li>
+              </ul>
+            </skill-component>
 
-          <skill-component name="Django" level="2" period="1개월">
-            <ul class="skill-ul">
-              <li><p>간단한 CRUD가 포함된 프로젝트 진행 경험</p></li>
-            </ul>
-          </skill-component>
-        </div>
-      
-        <div class="horizontal-line"></div>
+            <skill-component name="Vue" level="2" period="1개월">
+              <ul class="skill-ul">
+                <li>Life Cycle을 이해하고 기초 수준의 프로젝트 진행 가능</li>
+                <li>Pinia 등 vue의 기초적인 수준의 생태계 이해</li>
+              </ul>
+            </skill-component>
 
-        <div class="grid">
-          <div>
-            <h4>알고리즘 역량</h4>
-            <p>삼성 SW 역량 테스트: A+(모의)</p>
-            <p>백준 온라인 저지: 플레티넘 5</p>
-          </div>
-          <div>
-            <h4 id="library">그외 라이브러리 및 프레임워크</h4>
-            <div class="info-box" id="infoBox">사용 경험이 많고 유용하다고 생각한 순서로 정리하였습니다.</div>
-            <div class="mini-grid">
-              <p>axios</p>
-              <p>Jest</p>
-              <p>StroyBook</p>
-              <p>TanstackQuery(ReactQuery)</p>
-              <p>Vite</p>
-              <p>MSW</p>
-              <p>zustand</p>
-              <p>styled-component</p>
-              <p>million</p>
-              <p>Redux-toolkit</p>
-              <p>module.CSS</p>
-              <p>Realm</p>
-              <p>prettier</p>
-              <p>EsLint</p>
-              <p>dompurify</p>
-              <p>intl</p>
-              <p>riverPod</p>
-              <p>stomp_dart_client</p>
+            <skill-component name="Django" level="2" period="1개월">
+              <ul class="skill-ul">
+                <li>간단한 CRUD가 포함된 프로젝트 진행 경험</li>
+              </ul>
+            </skill-component>
+          </section>
+        
+          <div class="horizontal-line"></div>
+
+          <div class="grid">
+            <div>
+              <p><strong>알고리즘 역량</strong></p>
+              <p>삼성 SW 역량 테스트: A+(모의)</p>
+              <p>백준 온라인 저지: 플레티넘 5</p>
+            </div>
+            <div>
+              <h4 id="library">그외 라이브러리 및 프레임워크</h4>
+              <div class="info-box" id="infoBox">사용 경험이 많고 유용하다고 생각한 순서로 정리하였습니다.</div>
+              <div class="mini-grid">
+                <p>axios</p>
+                <p>Jest</p>
+                <p>StroyBook</p>
+                <p>TanstackQuery(ReactQuery)</p>
+                <p>Vite</p>
+                <p>MSW</p>
+                <p>zustand</p>
+                <p>styled-component</p>
+                <p>million</p>
+                <p>Redux-toolkit</p>
+                <p>module.CSS</p>
+                <p>Realm</p>
+                <p>prettier</p>
+                <p>EsLint</p>
+                <p>dompurify</p>
+                <p>intl</p>
+                <p>riverPod</p>
+                <p>stomp_dart_client</p>
+              </div>
             </div>
           </div>
+
+          <div>
+
+          </div>
+
         </div>
-
-        <div>
-
-        </div>
-
       </div>
-    </div>
 
-    <div id="project" class="full">
-      <div class="nav-height"></div>
-      <div class="center-for-focus">
-        <project-component
-          name="RunTime"
-          projectDescription="실시간 달리기 배틀 서비스 - 랜덤 매칭(1:1), 단체전(대기방을 통한 다인전), 과거 기록과 배틀하는 연습 모드"
-          skill="React"
-          imgSrc="https://cdn.travie.com/news/photo/first/201710/img_19975_1.jpg"
-        >
+      <div id="project" class="full flex">
+        <div class="nav-height"></div>
+        <section class="center-for-focus flex flex-center flex-column project-border" style="flex-grow: 1; justify-content:center;">
 
-        </project-component>
+            <project-component
+              name="Run Time"
+              projectSummary="실시간 달리기 배틀 서비스"
+              projectDescription="랜덤 매칭(1:1), 단체전(대기방을 통한 다인전), 과거 기록과 배틀하는 연습 모드"
+              skill="React"
+            >
+              <ul class="project-description">
+                <li>Stomp 서버와 연결, 현재 위치 및 달린 거리와 이를 통한 TTS 중계</li>
+                <li>랜덤 매칭, 단체전, 연습 모드 구현</li>
+                <li>디자인 시스템(Theme), MVVM 패턴과 SingleTon 패턴을 학습하여 팀원에게 공유</li>
+              </ul>
+            </project-component>
+
+            <project-component
+              name="Close At Hand"
+              projectSummary="스마트 거울(Iot 기기)을 활용한 옷/스타일 관리 서비스"
+              skill="React Native"
+              reverse
+            >
+              <ul class="project-description">
+                <li>블루투스, 로컬 데이터 관리</li>
+                <li>Jest 및 Story book을 활용한 테스트</li>
+                <li>FSD 아키텍처 수정 및 적용하여 팀원에게 공유</li>
+              </ul>
+            </project-component>
+
+            <project-component
+              name="독캣당(DogCatDang)"
+              projectSummary="유기견 & 유기묘 입양 플랫폼"
+              skill="React"
+              imgSrc="./images/projects/DogCatDang.webp"
+            >
+              <ul class="project-description">
+                <li>WYSWYG 형식의 게시판, 실시간 방송 서비스</li>
+                <li>google light house의 4가지 측정 항목 모두 90점 이상 달성</li>
+              </ul>
+            </project-component>
+
+        </section>
       </div>
-    </div>
+    </main>
+
+    
 
     <div id="contact" class="full">
       <div class="nav-height"></div>
       <div class="center-for-focus">
+        <footer>
+
+        </footer>
       </div>
     </div>
 
