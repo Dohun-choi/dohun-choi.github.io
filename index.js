@@ -219,3 +219,75 @@ class skill extends HTMLElement {
 }
 
 customElements.define("skill-component", skill);
+
+class Project extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: hiddenShadowDom });
+    this.render();
+  }
+
+  attributeChangedCallback(_name, oldValue, newValue) {
+    if (oldValue !== newValue) {
+      this.render();
+    }
+  }
+
+  render() {
+    if (!this.shadowRoot) return;
+
+    const name = this.getAttribute("name") ?? "name 속성이 지정되지 않음";
+    const skill = this.getAttribute("skill") ?? "skill 속성 지정되지 않음";
+    const projectDescription =
+      this.getAttribute("projectDescription") ??
+      "projectDescription이 지정되지 않음";
+    const imgSrc = this.getAttribute("imgSrc");
+
+    this.shadowRoot.innerHTML = `
+    <style>
+    .project-component-container {
+      display: flex;
+    }
+    @media (max-width: 1000px) {
+      .project-component-container {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .project-component-column {
+      display: flex;
+      flex-direction: column;
+    }
+    .project-component-column > p {
+      margin: 0px
+    }
+    .project-component-skill {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .project-component-img {
+      object-fit: contain;
+    }
+    .project-component-name {
+      font-weight: bold;
+    }
+    </style>
+    <div class="project-component-container">
+      <img src="${imgSrc}" height="400px" class="project-component-img">
+      <div class="project-component-column">
+        <p class="project-component-name">${name}</p>
+        <p>${projectDescription}</p>
+        <p class="project-component-name">역할</p>
+        <div class="project-component-skill">
+          <img src="./images/${skill}.svg" height="40px" width="40px">
+          <p>${skill}</p>
+        </div>
+        <slot></slot>
+      </div>
+    </div>
+    `;
+  }
+}
+
+customElements.define("project-component", Project);
