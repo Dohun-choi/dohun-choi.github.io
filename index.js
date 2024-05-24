@@ -86,7 +86,7 @@ window.addEventListener("load", async () => {
   postListElement.appendChild(loadingMessage);
 
   try {
-    // const posts = await fetchLatestPosts();
+    const posts = await fetchLatestPosts();
 
     posts.forEach((post) => {
       const listItem = document.createElement("li");
