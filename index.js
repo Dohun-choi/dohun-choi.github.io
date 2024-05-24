@@ -88,10 +88,6 @@ window.addEventListener("load", async () => {
   try {
     const posts = await fetchLatestPosts();
 
-    // 로딩 스피너 삭제
-    postListElement.removeChild(loadingSpinner);
-    postListElement.removeChild(loadingMessage);
-
     posts.forEach((post) => {
       const listItem = document.createElement("li");
       const linkElement = document.createElement("a");
@@ -112,6 +108,10 @@ window.addEventListener("load", async () => {
       errorMessage.textContent = "현재 블로그의 최신 글을 가져올 수 없습니다.";
     }
     postListElement.appendChild(errorMessage);
+  } finally {
+    // 로딩 스피너 삭제
+    postListElement.removeChild(loadingSpinner);
+    postListElement.removeChild(loadingMessage);
   }
 });
 
