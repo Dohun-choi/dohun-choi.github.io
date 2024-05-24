@@ -137,10 +137,8 @@ class skill extends HTMLElement {
   }
 
   render() {
-    if (!this.shadowRoot) {
-      return;
-    }
-    const name = this.getAttribute("name");
+    if (!this.shadowRoot) return;
+    const name = this.getAttribute("name") ?? "name 속성 없음";
     const level = Math.min(parseInt(this.getAttribute("level")) || 0, 5);
     const period = this.getAttribute("period");
 
@@ -156,6 +154,9 @@ class skill extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
     <style>
+    :host {
+      display: block;
+    }
     .skill-component-row {
       display: flex;
       flex-direction: row;
@@ -170,13 +171,28 @@ class skill extends HTMLElement {
     .skill-component-left-margin {
       margin-left: 10px;
     }
+    .skill-component-small-img {
+      display: none;
+    }
+    @media (max-width: 400px) {
+      .skill-component-small-img {
+        display: block;
+        margin-right: 5px
+      }
+    }
     .skill-component-img {
       margin-right: 10px
+    }
+    @media (max-width: 400px) {
+      .skill-component-img {
+        display: none;
+      }
     }
     .skill-component-rectangle {
       width: 20px;
       height: 20px;
       margin-right: 5px;
+      display: flex;
     }
      .skill-component-rectangle-color {
       background-color: #1263CE;
@@ -187,7 +203,8 @@ class skill extends HTMLElement {
     </style>
 
     <div class="skill-component-row skill-component-bold-center">
-      <p>${name ?? "name 속성 없음"}</p>
+      <img class="skill-component-small-img" src="./images/${name}.svg" height="30px"/>
+      <p>${name}</p>
       <p class="skill-component-left-margin skill-component-period">${
         period ? `${period} 경력` : ""
       }</p>
@@ -197,7 +214,6 @@ class skill extends HTMLElement {
       <img class="skill-component-img" src="./images/${name}.svg" height="50px"/>
       <slot></slot>
     </div>
-
     `;
   }
 }
