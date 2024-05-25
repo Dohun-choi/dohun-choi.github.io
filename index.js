@@ -1,4 +1,4 @@
-// 스크롤 버튼 Start
+// 스크롤 버튼
 window.addEventListener("scroll", function () {
   const topButton = document.getElementById("topButton");
   if (window.scrollY > 100) {
@@ -13,9 +13,7 @@ window.addEventListener("scroll", function () {
     }, 300);
   }
 });
-// 스크롤 버튼 End
 
-// 라이브러리 호버 시 정렬 기준 설명 보이게 하기 Start
 document.getElementById("topButton").addEventListener("click", function () {
   window.scrollTo({
     top: 0,
@@ -41,39 +39,30 @@ hoverTargetElement.addEventListener("mouseleave", function () {
   // 마우스가 벗어날 때 정보 숨기기
   infoBoxElement.style.display = "none";
 });
-// 라이브러리 호버 시 정렬 기준 설명 보이게 하기 End
 
-// 내 블로그 최신글 가져오기 Start
-// 날짜 형식
-const dateOptions = {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-};
-
+// 내 블로그 최신글 가져오기
 async function fetchLatestPosts() {
   return fetch(
-    "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fcurt-poem.tistory.com%2Frss"
+    "https://cors-anywhere.herokuapp.com/https://curt-poem.tistory.com/rss"
   )
-    .then(async (response) => {
+    .then((response) => {
       if (!response.ok) {
         throw new Error(response.status);
       }
-      const responseJson = await response.json();
-      return responseJson.items;
+      return response.text();
     })
-    .then((items) => {
+    .then((xmlText) => {
+      const parser = new DOMParser();
+      const xmlDocument = parser.parseFromString(xmlText, "text/xml");
+      const items = xmlDocument.querySelectorAll("item");
       const latestPosts = [];
-
       for (let i = 0; i < Math.min(items.length, 3); i++) {
         const item = items[i];
-        let title = item.title;
-        title += ` - ${item.pubDate.split(" ")[0]}`;
-        const link = item.link;
-        latestPosts.push({ title, link });
+        const title = item.querySelector("title").textContent;
+        const link = item.querySelector("link").textContent;
+        const pubDate = item.querySelector("pubDate").textContent;
+        latestPosts.push({ title, link, pubDate });
       }
-
       return latestPosts;
     })
     .catch((error) => {
@@ -129,7 +118,6 @@ window.addEventListener("load", async () => {
     postListElement.removeChild(loadingMessage);
   }
 });
-// 내 블로그 최신글 가져오기 End
 
 // Web Component
 const hiddenShadowDom = "open";
