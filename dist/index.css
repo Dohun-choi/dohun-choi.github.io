@@ -145,9 +145,13 @@ nav {
 }
 
 .blog-post-list {
-  min-height: 65px;
+  min-height: 100px;
   list-style-type: none;
   text-align: center;
+}
+
+.blog-post-list > li {
+  padding: 5px;
 }
 
 .spinner {
