@@ -22,6 +22,12 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add api/rss.js
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit"
+          else
+            git commit -m "[GitHubAction] RSS Feed 불러오는 요청 주석 해제"
+            git push
+          fi
 
   npm-build:
     runs-on: ubuntu-latest
@@ -54,33 +60,3 @@ jobs:
             git commit -m "[GitHubAction] deploy"
             git push
           fi
-          npmBuild:
-            runs-on: ubuntu-latest
-            steps:
-              - name: Checkout
-                uses: actions/checkout@v4
-
-              - name: Cache Node.js modules
-                uses: actions/setup-node@v4
-                id: cache
-                with:
-                  node-version: "20"
-
-              - name: Install dependencies
-                if: steps.cache.outputs.cache-hit != 'true'
-                run: npm install
-
-              - name: Build project
-                run: npm run build
-
-              - name: Commit changes
-                run: |
-                  git config --local user.email "action@github.com"
-                  git config --local user.name "GitHub Action"
-                  git add -f dist/bundle.js dist/bundle.js.map
-                  if git diff-index --quiet HEAD --; then
-                    echo "No changes to commit"
-                  else
-                    git commit -m "[GitHubAction] deploy"
-                    git push
-                  fi
