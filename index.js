@@ -61,17 +61,15 @@ async function fetchLatestPosts() {
         throw new Error(response.status);
       }
       const responseJson = await response.json();
-      return responseJson.items;
+      return responseJson.items.splice(0, 3);
     })
     .then((items) => {
-      console.log(items);
-
       const latestPosts = [];
 
-      for (let i = 0; i < Math.min(items.length, 3); i++) {
+      for (let i = 0; i < items.length; i++) {
         const item = items[i];
         let title = item.title;
-        title += ` - ${item.pubDate}`;
+        title += ` - ${item.pubDate.split(" ")[0]}`;
         const link = item.link;
         latestPosts.push({ title, link });
       }
@@ -117,10 +115,12 @@ window.addEventListener("load", async () => {
     if (error.message == 429) {
       errorMessage.innerHTML =
         'RSS GET 요청 제한 도달: 한 시간 뒤에 다시 시도하거나 <a href="https://curt-poem.tistory.com/">블로그를 직접 방문</a>해주세요.';
-    } else if (error.message == 403) {
-      errorMessage.innerHTML =
-        "외부 프록시 서버 에러, hallow2546@gmail.com으로 연락주시면 빠르게 조치하겠습니다.";
-    } else {
+    }
+    // else if (error.message == 403) {
+    //   errorMessage.innerHTML =
+    //     "외부 프록시 서버에러.";
+    // }
+    else {
       errorMessage.innerHTML =
         '현재 <a href="https://curt-poem.tistory.com/">블로그의 최신 글</a>을 가져올 수 없습니다.';
     }
@@ -168,71 +168,74 @@ class skill extends HTMLElement {
     let rectangles = "";
     for (let i = 0; i < 5; i++) {
       if (i < level) {
-        rectangles += `<div class="skill-component-rectangle skill-component-rectangle-color"></div>`;
+        rectangles += `<div class="rectangle rectangle-color"></div>`;
       } else {
-        rectangles += `<div class="skill-component-rectangle skill-component-rectangle-border"></div>`;
+        rectangles += `<div class="rectangle rectangle-border"></div>`;
       }
     }
 
     this.shadowRoot.innerHTML = `
     <style>
-    .skill-component-row {
-      display: flex;
-      flex-direction: row;
-    }
-    .skill-component-container {
-      font-weight: bold;
-      align-items: center;
-    }
-    .skill-component-period {
-      font-weight: normal
-    }
-    .skill-component-left-margin {
-      margin-left: 10px;
-    }
-    .skill-component-small-img {
-      display: none;
-    }
-    @media (max-width: 400px) {
-      .skill-component-small-img {
-        display: block;
-        margin-right: 5px
+      :host > * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
       }
-    }
-    .skill-component-img {
-      margin-right: 10px
-    }
-    @media (max-width: 400px) {
-      .skill-component-img {
+      .row {
+        display: flex;
+        flex-direction: row;
+      }
+      .container {
+        font-weight: bold;
+        align-items: center;
+      }
+      .period {
+        font-weight: normal
+      }
+      .left-margin {
+        margin-left: 10px;
+      }
+      .small-img {
         display: none;
       }
-    }
-    .skill-component-rectangle {
-      width: 20px;
-      height: 20px;
-      margin-right: 5px;
-      display: flex;
-    }
-     .skill-component-rectangle-color {
-      background-color: #1263CE;
-     }
-     .skill-component-rectangle-border {
-      border: 1px black solid;
-     }
+      @media (max-width: 400px) {
+        .small-img {
+          display: block;
+          margin-right: 5px
+        }
+      }
+      .img {
+        margin-right: 10px
+      }
+      @media (max-width: 400px) {
+        .img {
+          display: none;
+        }
+      }
+      .rectangle {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        display: flex;
+      }
+      .rectangle-color {
+        background-color: #1263CE;
+      }
+      .rectangle-border {
+        border: 1px black solid;
+      }
     </style>
     <article>
-      <div class="skill-component-row skill-component-container">
-        <img class="skill-component-small-img" src="${getSkillImageDir(
+      <div class="row container">
+        <img class="small-img" src="${getSkillImageDir(
           name
         )}" height="30px" alt="${name}아이콘"/>
         <p>${name}</p>
-        <p class="skill-component-left-margin skill-component-period">${
-          period ? `${period} 경력` : ""
-        }</p>
-        <p class="skill-component-left-margin">${rectangles}</p>
+        <p class="left-margin period">${period ? `${period} 경력` : ""}</p>
+        <p class="left-margin">${rectangles}</p>
       </div>
-      <div class="skill-component-row">
-        <img class="skill-component-img" src="${getSkillImageDir(
+      <div class="row">
+        <img class="img" src="${getSkillImageDir(
           name
         )}" height="50px" alt="${name}아이콘"/>
         <slot></slot>
@@ -274,31 +277,36 @@ class Project extends HTMLElement {
     :host {
       width: 100%;
     }
-    .project-component-container {
+    :host > * {
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+    .container {
       display: flex;
       justify-content: ${reverse ? "end" : "start"};
       flex-direction: ${reverse ? "row-reverse" : "row"};
     }
     @media (max-width: 1000px) {
-      .project-component-container {
+      .container {
         display: flex;
         flex-direction: column;
       }
     }
-    .project-component-column {
+    .column {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .project-component-column > p {
+    .column > p {
       margin: 0px
     }
-    .project-component-skill {
+    .skill {
       display: flex;
       flex-direction: row;
       align-items: center;
     }
-    .project-component-img {
+    .img {
       align-self: center;
       object-fit: contain;
       margin-left: 5px;
@@ -306,30 +314,42 @@ class Project extends HTMLElement {
       border-radius: 30px;
       overflow: hidden;
     }
-    .project-component-name {
+    .name {
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
-    .project-component-summary {
-      padding-bottom: 10px;
+    .summary {
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ::slotted(li)::before {
+      content: "-";
+      color: black;
+      display: inline-block;
+      width: 1rem;
     }
     </style>
-    <article class="project-component-container">
+    <article class="container">
       <img src="${
         imgSrc ?? getProjectImageDir(name)
-      }" height="300px" width="300px" class="project-component-img" alt="${name} 로고">
-      <div class="project-component-column">
-        <p class="project-component-name">${name}</p>
-        <p class="project-component-summary">${projectSummary}</p>
-        <p class="project-component-summary">${projectDescription}</p>
-        <div class="project-component-skill">
-          <p class="project-component-name">역할</p>
-          <img class="project-component-img" src="${getSkillImageDir(
+      }" height="200px" width="200px" class="img" alt="${name} 로고">
+      <div class="column">
+        <p class="name">${name}</p>
+        <p class="summary">${projectSummary}</p>
+        <p class="summary">${projectDescription}</p>
+        <div class="skill">
+          <p class="name">역할</p>
+          <img class="img" src="${getSkillImageDir(
             skill
           )}" height="40px" width="40px" alt="${skill} 아이콘">
         </div>
           <p><strong>${skill}</strong></p>
-        <slot></slot>
+          <ul>
+            <slot></slot>
+          </ul>
       </div>
     </article>
     `;

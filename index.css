@@ -232,10 +232,6 @@ nav {
   border: 1px solid #010101;
 }
 
-.project-description > li {
-  font-size: 1.1rem;
-}
-
 .project-border > project-component {
   padding: 30px;
   border-bottom: 1px solid #000;
