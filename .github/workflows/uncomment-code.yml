@@ -21,7 +21,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add index.js
+          git add api/rss.js
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
           else
