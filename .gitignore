@@ -144,5 +144,3 @@ out
 
 dist/*.js
 dist/*.js.map
-dist/*.css
-dist/*.html
