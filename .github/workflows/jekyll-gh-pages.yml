@@ -4,7 +4,7 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   # bundle 후에 배포 시작
   workflow_run:
-    workflows: ["CI Pipeline"]
+    workflows: ["CI Pipeine"]
     types:
       - completed
 
