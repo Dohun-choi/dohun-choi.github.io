@@ -224,6 +224,21 @@ class skill extends HTMLElement {
       .rectangle-border {
         border: 1px black solid;
       }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      ::slotted(li) {
+        list-style-type: none;
+        overflow-wrap: break-word;
+        white-space: wrap;
+      }
+      ::slotted(li)::before {
+        content: "►";
+        color: black;
+        display: inline-block;
+        width: 1rem;
+      }
     </style>
     <article>
       <div class="row container">
@@ -238,7 +253,9 @@ class skill extends HTMLElement {
         <img class="img" src="${getSkillImageDir(
           name
         )}" height="50px" alt="${name}아이콘"/>
-        <slot></slot>
+        <ul>
+          <slot></slot>
+        </ul>
       </div>
     </article>
     `;
@@ -321,15 +338,19 @@ class Project extends HTMLElement {
     .summary {
       padding-bottom: 5px;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+    ol {
+      padding: 0px;
+      list-style-type: none;
+      counter-reset: counter;
+    }
+    ::slotted(li) {
+      counter-increment: counter;
     }
     ::slotted(li)::before {
-      content: "-";
+      content: counter(counter) ".";
       color: black;
       display: inline-block;
-      width: 1rem;
+      width: 1.1rem;
     }
     </style>
     <article class="container">
@@ -344,12 +365,12 @@ class Project extends HTMLElement {
           <p class="name">역할</p>
           <img class="img" src="${getSkillImageDir(
             skill
-          )}" height="40px" width="40px" alt="${skill} 아이콘">
+          )}" height="30px" width="30px" alt="${skill} 아이콘">
         </div>
           <p><strong>${skill}</strong></p>
-          <ul>
+          <ol>
             <slot></slot>
-          </ul>
+          </ol>
       </div>
     </article>
     `;
