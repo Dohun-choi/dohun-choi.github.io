@@ -49,10 +49,14 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Commit changes
+      - name: Check for changes
+        id: check_changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git diff-index --quiet HEAD -- || echo "Changes detected"
+
+      - name: Commit changes
+        if: steps.check_changes.outputs.stdout == 'Changes detected'
+        run: |
           git add dist/bundle.js dist/bundle.js.map
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
