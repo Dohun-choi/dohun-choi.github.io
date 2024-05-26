@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    types: [closed]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 코드
+        uses: actions/checkout@v2
+
+      - name: Node.js 설치
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: 종속성 설치
+        run: npm install
+
+      - name: 빌드 수행
+        run: npm run build

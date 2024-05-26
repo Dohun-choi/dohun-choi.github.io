@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "esbuild index.js --bundle --outfile=bundle.js --target=chrome58 --sourcemap --platform=browser --define:process.env.NODE_ENV='production' --define:global=window --minify --banner:\"js=/*! This is a banner */\" --footer:\"js=/* This is a footer */\" --define:DEBUG=false"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "esbuild": "^0.21.4"
+  }
+}
