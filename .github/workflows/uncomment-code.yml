@@ -9,16 +9,13 @@ on:
 jobs:
   uncomment-code:
     runs-on: ubuntu-latest
-    if: >
-      (github.event_name == 'push') ||
-      (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Uncomment code
-        run: sed -i 's/\/\/ const posts = await fetchLatestPosts();/const posts = await fetchLatestPosts();/' index.js
+        run: sed -i 's/\/\/ const posts = await fetchLatestPosts();/const posts = await fetchLatestPosts();/' api/rss.js
 
       - name: Commit changes
         run: |

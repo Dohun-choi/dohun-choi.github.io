@@ -1,26 +1,29 @@
-name: Build
+name: CI Pipeline
 
 on:
   push:
-    branches: [master]
-  pull_request:
-    types: [closed]
+    branches: [deploy]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout 코드
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Node.js 설치
-        uses: actions/setup-node@v2
+      - name: Cache Node.js modules
+        uses: actions/setup-node@v4
+        id: cache
         with:
-          node-version: "14"
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      - name: 종속성 설치
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
-      - name: 빌드 수행
+      - name: Build project
         run: npm run build
