@@ -27,5 +27,4 @@ jobs:
           else
             git commit -m "[GitHubAction] RSS Feed 불러오는 요청 주석 해제"
             git push
-          git push
           fi
