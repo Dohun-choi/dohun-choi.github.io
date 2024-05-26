@@ -86,7 +86,7 @@ export class Project extends HTMLElement {
     <article class="container">
       <img src="${
         imgSrc ?? getProjectImageDir(name)
-      }" height="200px" width="200px" class="img" alt="${name} 로고">
+      }" height="200px" width="200px" class="img" loading="lazy" alt="${name} 로고">
       <div class="column">
         <p class="name">${name}</p>
         <p class="summary">${projectSummary}</p>
@@ -95,7 +95,7 @@ export class Project extends HTMLElement {
           <p class="name">역할</p>
           <img class="img" src="${getSkillImageDir(
             skill
-          )}" height="30px" width="30px" alt="${skill} 아이콘">
+          )}" height="30px" width="30px" loading="lazy" alt="${skill} 아이콘">
         </div>
           <p><strong>${skill}</strong></p>
           <ol>

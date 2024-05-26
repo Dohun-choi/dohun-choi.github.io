@@ -93,7 +93,7 @@ export class skill extends HTMLElement {
       <div class="row container">
         <img class="small-img" src="${getSkillImageDir(
           name
-        )}" height="30px" alt="${name}아이콘"/>
+        )}" height="30px" loading="lazy" alt="${name}아이콘"/>
         <p>${name}</p>
         <p class="left-margin period">${period ? `${period} 경력` : ""}</p>
         <p class="left-margin">${rectangles}</p>
@@ -101,7 +101,7 @@ export class skill extends HTMLElement {
       <div class="row">
         <img class="img" src="${getSkillImageDir(
           name
-        )}" height="50px" alt="${name}아이콘"/>
+        )}" height="50px" loading="lazy" alt="${name}아이콘"/>
         <ul>
           <slot></slot>
         </ul>

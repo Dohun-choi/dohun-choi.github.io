@@ -14,7 +14,11 @@
 
 a {
   text-decoration: none;
-  color: #4b89dc;
+  color: #2762af;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 img {
@@ -144,15 +148,6 @@ nav {
   min-height: 65px;
   list-style-type: none;
   text-align: center;
-}
-
-.blog-post-item {
-  color: #4b89dc;
-}
-
-.blog-post-item:hover {
-  color: #4b89dc;
-  text-decoration: underline;
 }
 
 .spinner {
