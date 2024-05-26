@@ -45,7 +45,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add dist/bundle.js bundle.js.map
+          git add dist/bundle.js dist/bundle.js.map
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
           else
