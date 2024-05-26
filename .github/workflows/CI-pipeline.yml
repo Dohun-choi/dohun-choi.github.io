@@ -1,4 +1,4 @@
-name: Uncomment Code on Merge
+name: CI Pipeine
 
 on:
   push:
@@ -28,7 +28,8 @@ jobs:
             git commit -m "[GitHubAction] RSS Feed 불러오는 요청 주석 해제"
             git push
           fi
-  npmBuild:
+
+  npm-build:
     runs-on: ubuntu-latest
     needs: uncomment-code
     steps:
