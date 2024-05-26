@@ -22,6 +22,25 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  npmBuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache Node.js modules
+        uses: actions/setup-node@v4
+        id: cache
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
   # Build job
   build:
     runs-on: ubuntu-latest
