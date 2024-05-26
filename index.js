@@ -1,9 +1,12 @@
+import { latestPostEventListener } from "./api/rss";
 import { Project } from "./component/project";
 import { skill } from "./component/skill";
 
 // 컴포넌트 등록
 customElements.define("project-component", Project);
 customElements.define("skill-component", skill);
+
+window.addEventListener("load", latestPostEventListener);
 
 // 스크롤 버튼 Start
 window.addEventListener("scroll", function () {

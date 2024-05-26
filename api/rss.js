@@ -37,7 +37,7 @@ async function fetchLatestPosts() {
 }
 
 // 페이지 로드 시 fetchLatestPosts 함수 실행
-window.addEventListener("load", async () => {
+export const latestPostEventListener = async () => {
   const postListElement = document.getElementById("postList");
 
   // 로딩 스피너 추가
@@ -85,4 +85,4 @@ window.addEventListener("load", async () => {
     postListElement.removeChild(loadingSpinner);
     postListElement.removeChild(loadingMessage);
   }
-});
+};
