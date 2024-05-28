@@ -24,7 +24,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          if git diff-index --quiet HEAD --; then
+          if git ls-files -o --exclude-standard | grep -q "dist/bundle.js"; then
             echo "No changes to commit"
             echo "changes_detected=false" >> $GITHUB_ENV
           else
