@@ -86,11 +86,16 @@ nav {
 .nav-ul > li > a {
   text-decoration: none;
   color: white;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .nav-ul > li > a:hover {
   color: lightgray;
+}
+
+/* 해당 id가 화면에 보일 때 해당 링크를 bold로 설정 */
+.nav-ul > li > a.active {
+  font-weight: bold;
 }
 
 .nav-height {

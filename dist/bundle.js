@@ -1,4 +1,4 @@
-(()=>{var p=(e,t,o)=>new Promise((i,n)=>{var s=l=>{try{a(o.next(l))}catch(c){n(c)}},r=l=>{try{a(o.throw(l))}catch(c){n(c)}},a=l=>l.done?i(l.value):Promise.resolve(l.value).then(s,r);a((o=o.apply(e,t)).next())});function w(){return p(this,null,function*(){return fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fcurt-poem.tistory.com%2Frss").then(e=>p(this,null,function*(){if(!e.ok)throw new Error(e.status);return(yield e.json()).items.splice(0,3)})).then(e=>{let t=[];for(let o=0;o<e.length;o++){let i=e[o],n=i.title;n+=` - ${i.pubDate.split(" ")[0]}`;let s=i.link;t.push({title:n,link:s})}return t}).catch(e=>{throw e})})}var f=()=>p(void 0,null,function*(){let e=document.getElementById("postList"),t=document.createElement("div");t.id="loadingSpinner",t.classList.add("spinner"),e.appendChild(t);let o=document.createElement("p");o.textContent="RSS \uD53C\uB4DC\uB97C \uD1B5\uD574 \uBE14\uB85C\uADF8 \uCD5C\uC2E0 \uAE00\uC744 \uBD88\uB7EC\uC624\uB294 \uC911\uC785\uB2C8\uB2E4.",e.appendChild(o);try{(yield w()).forEach(n=>{let s=document.createElement("li"),r=document.createElement("a");r.href=n.link,r.textContent=n.title,r.classList.add("blog-post-item"),s.appendChild(r),e.appendChild(s)})}catch(i){console.error("\uCD5C\uC2E0 \uAE00\uC744 \uAC00\uC838\uC624\uB294 \uC911 \uC624\uB958\uAC00 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4.",i);let n=document.createElement("li");i.message==429?n.innerHTML='RSS GET \uC694\uCCAD \uC81C\uD55C \uB3C4\uB2EC: \uD55C \uC2DC\uAC04 \uB4A4\uC5D0 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uAC70\uB098 <a href="https://curt-poem.tistory.com/">\uBE14\uB85C\uADF8\uB97C \uC9C1\uC811 \uBC29\uBB38</a>\uD574\uC8FC\uC138\uC694.':n.innerHTML='\uD604\uC7AC <a href="https://curt-poem.tistory.com/">\uBE14\uB85C\uADF8\uC758 \uCD5C\uC2E0 \uAE00</a>\uC744 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.',e.appendChild(n)}finally{e.removeChild(t),e.removeChild(o)}});var d=e=>`./images/skills/${e.replace(/\s+/g,"")}.svg`,y=e=>`./images/projects/${e.replace(/\s+/g,"")}.webp`;var m=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.render()}render(){var a,l,c,u,x;if(!this.shadowRoot)return;let t=(a=this.getAttribute("name"))!=null?a:"name \uC18D\uC131\uC774 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C",o=(l=this.getAttribute("skill"))!=null?l:"skill \uC18D\uC131 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C",i=(c=this.getAttribute("projectSummary"))!=null?c:"projectSummary \uC18D\uC131 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C",n=(u=this.getAttribute("projectDescription"))!=null?u:"",s=this.getAttribute("imgSrc"),r=(x=this.getAttribute("projectUrl"))!=null?x:null;this.shadowRoot.innerHTML=`
+(()=>{var p=(t,e,n)=>new Promise((s,o)=>{var i=l=>{try{a(n.next(l))}catch(c){o(c)}},r=l=>{try{a(n.throw(l))}catch(c){o(c)}},a=l=>l.done?s(l.value):Promise.resolve(l.value).then(i,r);a((n=n.apply(t,e)).next())});function w(){return p(this,null,function*(){return fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fcurt-poem.tistory.com%2Frss").then(t=>p(this,null,function*(){if(!t.ok)throw new Error(t.status);return(yield t.json()).items.splice(0,3)})).then(t=>{let e=[];for(let n=0;n<t.length;n++){let s=t[n],o=s.title;o+=` - ${s.pubDate.split(" ")[0]}`;let i=s.link;e.push({title:o,link:i})}return e}).catch(t=>{throw t})})}var y=()=>p(void 0,null,function*(){let t=document.getElementById("postList"),e=document.createElement("div");e.id="loadingSpinner",e.classList.add("spinner"),t.appendChild(e);let n=document.createElement("p");n.textContent="RSS \uD53C\uB4DC\uB97C \uD1B5\uD574 \uBE14\uB85C\uADF8 \uCD5C\uC2E0 \uAE00\uC744 \uBD88\uB7EC\uC624\uB294 \uC911\uC785\uB2C8\uB2E4.",t.appendChild(n);try{(yield w()).forEach(o=>{let i=document.createElement("li"),r=document.createElement("a");r.href=o.link,r.textContent=o.title,r.classList.add("blog-post-item"),i.appendChild(r),t.appendChild(i)})}catch(s){console.error("\uCD5C\uC2E0 \uAE00\uC744 \uAC00\uC838\uC624\uB294 \uC911 \uC624\uB958\uAC00 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4.",s);let o=document.createElement("li");s.message==429?o.innerHTML='RSS GET \uC694\uCCAD \uC81C\uD55C \uB3C4\uB2EC: \uD55C \uC2DC\uAC04 \uB4A4\uC5D0 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uAC70\uB098 <a href="https://curt-poem.tistory.com/">\uBE14\uB85C\uADF8\uB97C \uC9C1\uC811 \uBC29\uBB38</a>\uD574\uC8FC\uC138\uC694.':o.innerHTML='\uD604\uC7AC <a href="https://curt-poem.tistory.com/">\uBE14\uB85C\uADF8\uC758 \uCD5C\uC2E0 \uAE00</a>\uC744 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.',t.appendChild(o)}finally{t.removeChild(e),t.removeChild(n)}});var d=t=>`./images/skills/${t.replace(/\s+/g,"")}.svg`,x=t=>`./images/projects/${t.replace(/\s+/g,"")}.webp`;var m=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.render()}render(){var a,l,c,u,f;if(!this.shadowRoot)return;let e=(a=this.getAttribute("name"))!=null?a:"name \uC18D\uC131\uC774 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C",n=(l=this.getAttribute("skill"))!=null?l:"skill \uC18D\uC131 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C",s=(c=this.getAttribute("projectSummary"))!=null?c:"projectSummary \uC18D\uC131 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C",o=(u=this.getAttribute("projectDescription"))!=null?u:"",i=this.getAttribute("imgSrc"),r=(f=this.getAttribute("projectUrl"))!=null?f:null;this.shadowRoot.innerHTML=`
     <style>
     :host {
       width: 100%;
@@ -19,7 +19,6 @@
     }
     .container:hover {
       transform: scale(1.05);
-      z-index: 100;
     }
     @media (max-width: 1000px) {
       .container {
@@ -81,23 +80,23 @@
   -->
   <a href="${r}" target="_blank" rel="noopener noreferrer">
     <article class="container">
-      <img src="${s!=null?s:y(t)}" height="200px" width="200px" class="img" loading="lazy" alt="${t} \uB85C\uACE0">
+      <img src="${i!=null?i:x(e)}" height="200px" width="200px" class="img" loading="lazy" alt="${e} \uB85C\uACE0">
       <div class="column">
-        <p class="name">${t}</p>
-        <p class="summary">${i}</p>
-        <p class="summary">${n}</p>
+        <p class="name">${e}</p>
+        <p class="summary">${s}</p>
+        <p class="summary">${o}</p>
         <div class="skill">
           <p class="name">\uC5ED\uD560</p>
-          <img class="img" src="${d(o)}" height="30px" width="30px" loading="lazy" alt="${o} \uC544\uC774\uCF58">
+          <img class="img" src="${d(n)}" height="30px" width="30px" loading="lazy" alt="${n} \uC544\uC774\uCF58">
         </div>
-          <p><strong>${o}</strong></p>
+          <p><strong>${n}</strong></p>
           <ol>
             <slot></slot>
           </ol>
       </div>
     </article>
   </a>
-    `}};var g=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.render()}render(){var s;if(!this.shadowRoot)return;let t=(s=this.getAttribute("name"))!=null?s:"name \uC18D\uC131 \uC5C6\uC74C",o=Math.min(parseInt(this.getAttribute("level"))||0,5),i=this.getAttribute("period"),n="";for(let r=0;r<5;r++)r<o?n+='<div class="rectangle rectangle-color"></div>':n+='<div class="rectangle rectangle-border"></div>';this.shadowRoot.innerHTML=`
+    `}};var g=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.render()}render(){var i;if(!this.shadowRoot)return;let e=(i=this.getAttribute("name"))!=null?i:"name \uC18D\uC131 \uC5C6\uC74C",n=Math.min(parseInt(this.getAttribute("level"))||0,5),s=this.getAttribute("period"),o="";for(let r=0;r<5;r++)r<n?o+='<div class="rectangle rectangle-color"></div>':o+='<div class="rectangle rectangle-border"></div>';this.shadowRoot.innerHTML=`
     <style>
       * {
         box-sizing: border-box;
@@ -166,17 +165,17 @@
     </style>
     <article>
       <div class="row container">
-        <img class="small-img" src="${d(t)}" height="30px" loading="lazy" alt="${t}\uC544\uC774\uCF58"/>
-        <p>${t}</p>
-        <p class="left-margin period">${i?`${i} \uACBD\uB825`:""}</p>
-        <p class="left-margin">${n}</p>
+        <img class="small-img" src="${d(e)}" height="30px" loading="lazy" alt="${e}\uC544\uC774\uCF58"/>
+        <p>${e}</p>
+        <p class="left-margin period">${s?`${s} \uACBD\uB825`:""}</p>
+        <p class="left-margin">${o}</p>
       </div>
       <div class="row">
-        <img class="img" src="${d(t)}" height="50px" loading="lazy" alt="${t}\uC544\uC774\uCF58"/>
+        <img class="img" src="${d(e)}" height="50px" loading="lazy" alt="${e}\uC544\uC774\uCF58"/>
         <ul>
           <slot></slot>
         </ul>
       </div>
     </article>
-    `}};customElements.define("project-component",m);customElements.define("skill-component",g);window.addEventListener("load",f);window.addEventListener("scroll",function(){let e=document.getElementById("topButton");window.scrollY>100?(e.style.display="block",e.style.opacity="1"):(e.style.opacity="0",setTimeout(()=>{window.scrollY<=100&&(e.style.display="none")},300))});document.getElementById("topButton").addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});var b=document.getElementById("library"),h=document.getElementById("infoBox");b.addEventListener("mouseenter",function(e){let t=e.clientX,o=e.clientY;h.style.display="block",h.style.left=t,h.style.top=o});b.addEventListener("mouseleave",function(){h.style.display="none"});})();
+    `}};customElements.define("project-component",m);customElements.define("skill-component",g);window.addEventListener("load",y);window.addEventListener("scroll",function(){v(),E()});function v(){let t=document.getElementById("topButton");window.scrollY>100?(t.style.display="block",t.style.opacity="1"):(t.style.opacity="0",setTimeout(()=>{window.scrollY<=100&&(t.style.display="none")},300))}function E(){let t=window.scrollY+1,e={home:document.getElementById("home"),skills:document.getElementById("skills"),project:document.getElementById("project"),contact:document.getElementById("contact")},n=null;for(let o in e)if(t>=e[o].offsetTop&&t<e[o].offsetTop+e[o].offsetHeight/3){n=o;break}if(!n)return;document.querySelectorAll(".nav-ul li a").forEach(function(o){let i=o.getAttribute("href").substring(1);i===n?(console.log(i),o.classList.add("active")):o.classList.remove("active")})}document.getElementById("topButton").addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});var b=document.getElementById("library"),h=document.getElementById("infoBox");b.addEventListener("mouseenter",function(t){let e=t.clientX,n=t.clientY;h.style.display="block",h.style.left=e,h.style.top=n});b.addEventListener("mouseleave",function(){h.style.display="none"});})();
 /* https://github.com/Dohun-choi */
