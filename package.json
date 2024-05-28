@@ -4,8 +4,6 @@
     "deployBuild": "esbuild index.js --bundle --outfile=dist/bundle.js --target=chrome58,firefox57,safari11,edge16 --platform=browser --footer:\"js=/* https://github.com/Dohun-choi */\" --define:global=window --minify --pure:console.log"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.6",
-    "@babel/preset-env": "^7.24.6",
     "esbuild": "^0.21.4"
   }
 }
