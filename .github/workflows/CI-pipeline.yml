@@ -31,8 +31,9 @@ jobs:
             echo "Changes detected"
             echo "changes_detected=true" >> $GITHUB_ENV
           fi
+
       - name: Commit changes
-        if: steps.check_changes.outputs.changes_detected == 'true'
+        if: ${{ env.changes_detected == 'true' }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
