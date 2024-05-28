@@ -25,7 +25,7 @@ export class skill extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
     <style>
-      :host > * {
+      * {
         box-sizing: border-box;
         margin: 0px;
         padding: 0px;
@@ -37,6 +37,8 @@ export class skill extends HTMLElement {
       .container {
         font-weight: bold;
         align-items: center;
+        padding-top: 16px;
+        padding-bottom: 16px;
       }
       .period {
         font-weight: normal
@@ -75,7 +77,6 @@ export class skill extends HTMLElement {
       }
       ul {
         list-style: none;
-        padding: 0;
       }
       ::slotted(li) {
         list-style-type: none;
