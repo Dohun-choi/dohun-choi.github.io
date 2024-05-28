@@ -19,7 +19,7 @@ jobs:
         run: |
           sed -i 's/\/\/ const posts = await fetchLatestPosts();/const posts = await fetchLatestPosts();/' api/rss.js
           npm install
-          npm run build
+          npm run deployBuild
 
       - name: Commit changes
         run: |
