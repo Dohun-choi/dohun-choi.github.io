@@ -26,12 +26,14 @@ jobs:
         run: |
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
+            echo "::set-output name=changes_detected::false"
           else
             echo "Changes detected"
+            echo "::set-output name=changes_detected::true"
           fi
 
       - name: Commit changes
-        if: steps.check_changes.outputs.stdout == 'Changes detected'
+        if: steps.check_changes.outputs.changes_detected == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
