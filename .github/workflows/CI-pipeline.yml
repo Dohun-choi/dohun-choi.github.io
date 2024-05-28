@@ -56,8 +56,9 @@ jobs:
 
       - name: Commit changes
         if: steps.check_changes.outputs.stdout == 'Changes detected'
+        # git add에 -f를 추가하여 서버에서 빌드가 정상적으로 이루어지도록 함
         run: |
-          git add dist/bundle.js dist/bundle.js.map
+          git add -f dist/bundle.js dist/bundle.js.map
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
           else
