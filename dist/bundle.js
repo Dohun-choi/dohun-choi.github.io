@@ -19,6 +19,7 @@
     }
     .container:hover {
       transform: scale(1.05);
+      z-index: 100;
     }
     @media (max-width: 1000px) {
       .container {

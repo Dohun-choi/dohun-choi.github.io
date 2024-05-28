@@ -70,6 +70,7 @@ nav {
   width: 100vw;
   position: fixed;
   height: var(--nav-height);
+  z-index: 9999;
 }
 
 .nav-ul {
