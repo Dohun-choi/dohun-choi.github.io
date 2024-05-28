@@ -70,12 +70,7 @@ export const latestPostEventListener = async () => {
     if (error.message == 429) {
       errorMessage.innerHTML =
         'RSS GET 요청 제한 도달: 한 시간 뒤에 다시 시도하거나 <a href="https://curt-poem.tistory.com/">블로그를 직접 방문</a>해주세요.';
-    }
-    // else if (error.message == 403) {
-    //   errorMessage.innerHTML =
-    //     "외부 프록시 서버에러.";
-    // }
-    else {
+    } else {
       errorMessage.innerHTML =
         '현재 <a href="https://curt-poem.tistory.com/">블로그의 최신 글</a>을 가져올 수 없습니다.';
     }
