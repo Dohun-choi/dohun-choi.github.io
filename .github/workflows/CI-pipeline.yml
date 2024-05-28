@@ -21,22 +21,16 @@ jobs:
           npm install
           npm run build
 
-      - name: Check for changes
-        id: check_changes
+      - name: Commit changes
         run: |
           if git ls-files -o --exclude-standard | grep -q "dist/bundle.js"; then
-            echo "No changes to commit"
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add .
+            git add -f dist/bundle.js
+            git status
+            git commit -m "[GitHub Action] Auto build and deploy"
+            git push
           else
             echo "Changes detected"
           fi
-
-      - name: Commit changes
-        if: ${{ env.changes_detected == 'true' }}
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git add -f dist/bundle.js
-          git status
-          git commit -m "[GitHub Action] Auto build and deploy"
-          git push
