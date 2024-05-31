@@ -1,4 +1,5 @@
 import { latestPostEventListener } from "./api/rss";
+import { hoverAndShow } from "./component/hoverAndShow";
 import { Project } from "./component/project";
 import { skill } from "./component/skill";
 
@@ -70,32 +71,26 @@ function navHighlight() {
     }
   });
 }
-// 스크롤 버튼 End
 
-// 라이브러리 호버 시 정렬 기준 설명 보이게 하기 Start
 document.getElementById("topButton").addEventListener("click", function () {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 });
+// 스크롤 버튼 End
 
 // 라이브러리 목록 호버
-const hoverTargetElement = document.getElementById("library");
+const libraryElement = document.getElementById("library");
 const infoBoxElement = document.getElementById("infoBox");
+hoverAndShow(libraryElement, infoBoxElement);
 
-hoverTargetElement.addEventListener("mouseenter", function (event) {
-  const mouseX = event.clientX;
-  const mouseY = event.clientY;
-
-  // 마우스 위치에 정보 표시
-  infoBoxElement.style.display = "block";
-  infoBoxElement.style.left = mouseX;
-  infoBoxElement.style.top = mouseY;
+const skillComponents = Array.from(
+  document.getElementsByTagName("skill-component")
+);
+const skillLevelInfo = document.getElementById("skillInfoBox");
+console.log(skillComponents);
+skillComponents.forEach((e) => {
+  const levelContainer = e.shadowRoot.querySelector(".levels");
+  hoverAndShow(levelContainer, skillLevelInfo);
 });
-
-hoverTargetElement.addEventListener("mouseleave", function () {
-  // 마우스가 벗어날 때 정보 숨기기
-  infoBoxElement.style.display = "none";
-});
-// 라이브러리 호버 시 정렬 기준 설명 보이게 하기 End

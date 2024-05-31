@@ -67,7 +67,6 @@ export class skill extends HTMLElement {
         width: 20px;
         height: 20px;
         margin-right: 5px;
-        display: flex;
       }
       .rectangle-color {
         background-color: #1263CE;
@@ -97,7 +96,7 @@ export class skill extends HTMLElement {
         )}" height="30px" loading="lazy" alt="${name}아이콘"/>
         <p>${name}</p>
         <p class="left-margin period">${period ? `${period} 경력` : ""}</p>
-        <p class="left-margin">${rectangles}</p>
+        <div class="left-margin row levels">${rectangles}</div>
       </div>
       <div class="row">
         <img class="img" src="${getSkillImageDir(

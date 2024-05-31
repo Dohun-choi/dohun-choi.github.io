@@ -255,6 +255,7 @@ nav {
   background-color: #fdfdfd;
   padding: 10px;
   border: 1px solid #010101;
+  pointer-events: none;
 }
 
 .grid-four-column {

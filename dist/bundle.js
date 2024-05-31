@@ -1,2 +1,397 @@
-(()=>{async function b(){return fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fcurt-poem.tistory.com%2Frss").then(async t=>{if(!t.ok)throw new Error(t.status);return(await t.json()).items.splice(0,3)}).then(t=>{let e=[];for(let n=0;n<t.length;n++){let s=t[n],o=s.title;o+=" - ".concat(s.pubDate.split(" ")[0]);let i=s.link;e.push({title:o,link:i})}return e}).catch(t=>{throw t})}var f=async()=>{let t=document.getElementById("postList"),e=document.createElement("div");e.id="loadingSpinner",e.classList.add("spinner"),t.appendChild(e);let n=document.createElement("p");n.textContent="RSS \uD53C\uB4DC\uB97C \uD1B5\uD574 \uBE14\uB85C\uADF8 \uCD5C\uC2E0 \uAE00\uC744 \uBD88\uB7EC\uC624\uB294 \uC911\uC785\uB2C8\uB2E4.",t.appendChild(n);try{(await b()).forEach(o=>{let i=document.createElement("li"),r=document.createElement("a");r.href=o.link,r.textContent=o.title,r.classList.add("blog-post-item"),i.appendChild(r),t.appendChild(i)})}catch(s){console.error("\uCD5C\uC2E0 \uAE00\uC744 \uAC00\uC838\uC624\uB294 \uC911 \uC624\uB958\uAC00 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4.",s);let o=document.createElement("li");s.message==429?o.innerHTML='RSS GET \uC694\uCCAD \uC81C\uD55C \uB3C4\uB2EC: \uD55C \uC2DC\uAC04 \uB4A4\uC5D0 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uAC70\uB098 <a href="https://curt-poem.tistory.com/">\uBE14\uB85C\uADF8\uB97C \uC9C1\uC811 \uBC29\uBB38</a>\uD574\uC8FC\uC138\uC694.':o.innerHTML='\uD604\uC7AC <a href="https://curt-poem.tistory.com/">\uBE14\uB85C\uADF8\uC758 \uCD5C\uC2E0 \uAE00</a>\uC744 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.',t.appendChild(o)}finally{t.removeChild(e),t.removeChild(n)}};var l=t=>"./images/skills/".concat(t.replace(/\s+/g,""),".svg"),y=t=>"./images/projects/".concat(t.replace(/\s+/g,""),".webp");var a=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.render()}render(){var p,m,g,h,u;if(!this.shadowRoot)return;let e=(p=this.getAttribute("name"))!=null?p:"name \uC18D\uC131\uC774 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C",n=(m=this.getAttribute("skill"))!=null?m:"skill \uC18D\uC131 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C",s=(g=this.getAttribute("projectSummary"))!=null?g:"projectSummary \uC18D\uC131 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C",o=(h=this.getAttribute("projectDescription"))!=null?h:"",i=this.getAttribute("imgSrc"),r=(u=this.getAttribute("projectUrl"))!=null?u:null;this.shadowRoot.innerHTML='\n    <style>\n    :host {\n      width: 100%;\n    }\n    * {\n      box-sizing: border-box;\n      margin: 0px;\n      padding: 0px;\n    }\n    .container {\n      display: flex;\n      border: 1px solid #ddd;\n      border-radius: 10px;\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n      padding: 16px;\n      margin-bottom: 20px;\n      transition: transform 0.3s ease;\n    }\n    .container:hover {\n      transform: scale(1.05);\n    }\n    @media (max-width: 1000px) {\n      .container {\n        display: flex;\n        flex-direction: column;\n      }\n    }\n    .column {\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n    }\n    .column > p {\n      margin: 0px\n    }\n    .skill {\n      display: flex;\n      flex-direction: row;\n      align-items: center;\n    }\n    .img {\n      align-self: center;\n      object-fit: contain;\n      margin-left: 5px;\n      margin-right: 10px;\n      border-radius: 30px;\n      overflow: hidden;\n    }\n    .name {\n      font-weight: bold;\n      font-size: 1.2rem;\n    }\n    .summary {\n      padding-bottom: 5px;\n    }\n    ol {\n      padding: 0px;\n      list-style-type: none;\n      counter-reset: counter;\n    }\n    ::slotted(li) {\n      counter-increment: counter;\n    }\n    ::slotted(li)::before {\n      content: counter(counter) ".";\n      color: black;\n      display: inline-block;\n      width: 1.1rem;\n    }\n    a {\n      text-decoration: none;\n      color: inherit;\n    }\n    </style>\n\n  <!--\n  rel="noopener noreferrer"\uC740 Tabnabbing \uACF5\uACA9 \uBC29\uC5B4\uB97C \uC704\uD568\n  \uC0C8 \uD0ED\uC774 \uC6D0\uB798 \uD0ED\uC758 window.opener \uAC1D\uCCB4\uC5D0 \uC811\uADFC\uD560 \uC218 \uC5C6\uAC8C \uB9CC\uB4EC\n  -->\n  <a href="'.concat(r,'" target="_blank" rel="noopener noreferrer">\n    <article class="container">\n      <img src="').concat(i!=null?i:y(e),'" height="200px" width="200px" class="img" loading="lazy" alt="').concat(e,' \uB85C\uACE0">\n      <div class="column">\n        <p class="name">').concat(e,'</p>\n        <p class="summary">').concat(s,'</p>\n        <p class="summary">').concat(o,'</p>\n        <div class="skill">\n          <p class="name">\uC5ED\uD560</p>\n          <img class="img" src="').concat(l(n),'" height="30px" width="30px" loading="lazy" alt="').concat(n,' \uC544\uC774\uCF58">\n        </div>\n          <p><strong>').concat(n,"</strong></p>\n          <ol>\n            <slot></slot>\n          </ol>\n      </div>\n    </article>\n  </a>\n    ")}};var c=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.render()}render(){var i;if(!this.shadowRoot)return;let e=(i=this.getAttribute("name"))!=null?i:"name \uC18D\uC131 \uC5C6\uC74C",n=Math.min(parseInt(this.getAttribute("level"))||0,5),s=this.getAttribute("period"),o="";for(let r=0;r<5;r++)r<n?o+='<div class="rectangle rectangle-color"></div>':o+='<div class="rectangle rectangle-border"></div>';this.shadowRoot.innerHTML='\n    <style>\n      * {\n        box-sizing: border-box;\n        margin: 0px;\n        padding: 0px;\n      }\n      .row {\n        display: flex;\n        flex-direction: row;\n      }\n      .container {\n        font-weight: bold;\n        align-items: center;\n        padding-top: 16px;\n        padding-bottom: 16px;\n      }\n      .period {\n        font-weight: normal\n      }\n      .left-margin {\n        margin-left: 10px;\n      }\n      .small-img {\n        display: none;\n      }\n      @media (max-width: 400px) {\n        .small-img {\n          display: block;\n          margin-right: 5px\n        }\n      }\n      .img {\n        margin-right: 10px\n      }\n      @media (max-width: 400px) {\n        .img {\n          display: none;\n        }\n      }\n      .rectangle {\n        width: 20px;\n        height: 20px;\n        margin-right: 5px;\n        display: flex;\n      }\n      .rectangle-color {\n        background-color: #1263CE;\n      }\n      .rectangle-border {\n        border: 1px black solid;\n      }\n      ul {\n        list-style: none;\n      }\n      ::slotted(li) {\n        list-style-type: none;\n        overflow-wrap: break-word;\n        white-space: wrap;\n      }\n      ::slotted(li)::before {\n        content: "\u25BA";\n        color: black;\n        display: inline-block;\n        width: 1rem;\n      }\n    </style>\n    <article>\n      <div class="row container">\n        <img class="small-img" src="'.concat(l(e),'" height="30px" loading="lazy" alt="').concat(e,'\uC544\uC774\uCF58"/>\n        <p>').concat(e,'</p>\n        <p class="left-margin period">').concat(s?"".concat(s," \uACBD\uB825"):"",'</p>\n        <p class="left-margin">').concat(o,'</p>\n      </div>\n      <div class="row">\n        <img class="img" src="').concat(l(e),'" height="50px" loading="lazy" alt="').concat(e,'\uC544\uC774\uCF58"/>\n        <ul>\n          <slot></slot>\n        </ul>\n      </div>\n    </article>\n    ')}};customElements.define("project-component",a);customElements.define("skill-component",c);window.addEventListener("load",f);window.addEventListener("scroll",function(){w(),v()});function w(){let t=document.getElementById("topButton");window.scrollY>100?(t.style.display="block",t.style.opacity="1"):(t.style.opacity="0",setTimeout(()=>{window.scrollY<=100&&(t.style.display="none")},300))}function v(){let t=window.scrollY+1,e={home:document.getElementById("home"),skills:document.getElementById("skills"),project:document.getElementById("project"),contact:document.getElementById("contact")},n=null;for(let o in e)if(t>=e[o].offsetTop&&t<e[o].offsetTop+e[o].offsetHeight/3){n=o;break}if(!n)return;document.querySelectorAll(".nav-ul li a").forEach(function(o){let i=o.getAttribute("href").substring(1);i===n?o.classList.add("active"):o.classList.remove("active")})}document.getElementById("topButton").addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});var x=document.getElementById("library"),d=document.getElementById("infoBox");x.addEventListener("mouseenter",function(t){let e=t.clientX,n=t.clientY;d.style.display="block",d.style.left=e,d.style.top=n});x.addEventListener("mouseleave",function(){d.style.display="none"});})();
-/* https://github.com/Dohun-choi */
+(() => {
+  var __async = (__this, __arguments, generator) => {
+    return new Promise((resolve, reject) => {
+      var fulfilled = (value) => {
+        try {
+          step(generator.next(value));
+        } catch (e) {
+          reject(e);
+        }
+      };
+      var rejected = (value) => {
+        try {
+          step(generator.throw(value));
+        } catch (e) {
+          reject(e);
+        }
+      };
+      var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+      step((generator = generator.apply(__this, __arguments)).next());
+    });
+  };
+
+  // api/rss.js
+  function fetchLatestPosts() {
+    return __async(this, null, function* () {
+      return fetch(
+        "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fcurt-poem.tistory.com%2Frss"
+      ).then((response) => __async(this, null, function* () {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        const responseJson = yield response.json();
+        return responseJson.items.splice(0, 3);
+      })).then((items) => {
+        const latestPosts = [];
+        for (let i = 0; i < items.length; i++) {
+          const item = items[i];
+          let title = item.title;
+          title += ` - ${item.pubDate.split(" ")[0]}`;
+          const link = item.link;
+          latestPosts.push({ title, link });
+        }
+        return latestPosts;
+      }).catch((error) => {
+        throw error;
+      });
+    });
+  }
+  var latestPostEventListener = () => __async(void 0, null, function* () {
+    const postListElement = document.getElementById("postList");
+    const loadingSpinner = document.createElement("div");
+    loadingSpinner.id = "loadingSpinner";
+    loadingSpinner.classList.add("spinner");
+    postListElement.appendChild(loadingSpinner);
+    const loadingMessage = document.createElement("p");
+    loadingMessage.textContent = "RSS \uD53C\uB4DC\uB97C \uD1B5\uD574 \uBE14\uB85C\uADF8 \uCD5C\uC2E0 \uAE00\uC744 \uBD88\uB7EC\uC624\uB294 \uC911\uC785\uB2C8\uB2E4.";
+    postListElement.appendChild(loadingMessage);
+    try {
+      const posts = yield fetchLatestPosts();
+      posts.forEach((post) => {
+        const listItem = document.createElement("li");
+        const linkElement = document.createElement("a");
+        linkElement.href = post.link;
+        linkElement.textContent = post.title;
+        linkElement.classList.add("blog-post-item");
+        listItem.appendChild(linkElement);
+        postListElement.appendChild(listItem);
+      });
+    } catch (error) {
+      console.error("\uCD5C\uC2E0 \uAE00\uC744 \uAC00\uC838\uC624\uB294 \uC911 \uC624\uB958\uAC00 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4.", error);
+      const errorMessage = document.createElement("li");
+      if (error.message == 429) {
+        errorMessage.innerHTML = 'RSS GET \uC694\uCCAD \uC81C\uD55C \uB3C4\uB2EC: \uD55C \uC2DC\uAC04 \uB4A4\uC5D0 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uAC70\uB098 <a href="https://curt-poem.tistory.com/">\uBE14\uB85C\uADF8\uB97C \uC9C1\uC811 \uBC29\uBB38</a>\uD574\uC8FC\uC138\uC694.';
+      } else {
+        errorMessage.innerHTML = '\uD604\uC7AC <a href="https://curt-poem.tistory.com/">\uBE14\uB85C\uADF8\uC758 \uCD5C\uC2E0 \uAE00</a>\uC744 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.';
+      }
+      postListElement.appendChild(errorMessage);
+    } finally {
+      postListElement.removeChild(loadingSpinner);
+      postListElement.removeChild(loadingMessage);
+    }
+  });
+
+  // component/hoverAndShow.js
+  var hoverAndShow = (hoverTargetElement, showedElement) => {
+    hoverTargetElement.addEventListener("mousemove", function(event) {
+      showedElement.style.display = "block";
+      showedElement.style.left = event.pageX + "px";
+      showedElement.style.top = event.pageY + "px";
+    });
+    hoverTargetElement.addEventListener("mouseleave", function() {
+      showedElement.style.display = "none";
+    });
+  };
+
+  // util/getFilePath.js
+  var getSkillImageDir = (skillName) => `./images/skills/${skillName.replace(/\s+/g, "")}.svg`;
+  var getProjectImageDir = (projectName) => `./images/projects/${projectName.replace(/\s+/g, "")}.webp`;
+
+  // component/project.js
+  var Project = class extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: "open" });
+      this.render();
+    }
+    render() {
+      var _a, _b, _c, _d, _e;
+      if (!this.shadowRoot) return;
+      const name = (_a = this.getAttribute("name")) != null ? _a : "name \uC18D\uC131\uC774 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C";
+      const skill2 = (_b = this.getAttribute("skill")) != null ? _b : "skill \uC18D\uC131 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C";
+      const projectSummary = (_c = this.getAttribute("projectSummary")) != null ? _c : "projectSummary \uC18D\uC131 \uC9C0\uC815\uB418\uC9C0 \uC54A\uC74C";
+      const projectDescription = (_d = this.getAttribute("projectDescription")) != null ? _d : "";
+      const imgSrc = this.getAttribute("imgSrc");
+      const projectUrl = (_e = this.getAttribute("projectUrl")) != null ? _e : null;
+      this.shadowRoot.innerHTML = `
+    <style>
+    :host {
+      width: 100%;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+    .container {
+      display: flex;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    .container:hover {
+      transform: scale(1.05);
+    }
+    @media (max-width: 1000px) {
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .column > p {
+      margin: 0px
+    }
+    .skill {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .img {
+      align-self: center;
+      object-fit: contain;
+      margin-left: 5px;
+      margin-right: 10px;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+    .name {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .summary {
+      padding-bottom: 5px;
+    }
+    ol {
+      padding: 0px;
+      list-style-type: none;
+      counter-reset: counter;
+    }
+    ::slotted(li) {
+      counter-increment: counter;
+    }
+    ::slotted(li)::before {
+      content: counter(counter) ".";
+      color: black;
+      display: inline-block;
+      width: 1.1rem;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    </style>
+
+  <!--
+  rel="noopener noreferrer"\uC740 Tabnabbing \uACF5\uACA9 \uBC29\uC5B4\uB97C \uC704\uD568
+  \uC0C8 \uD0ED\uC774 \uC6D0\uB798 \uD0ED\uC758 window.opener \uAC1D\uCCB4\uC5D0 \uC811\uADFC\uD560 \uC218 \uC5C6\uAC8C \uB9CC\uB4EC
+  -->
+  <a href="${projectUrl}" target="_blank" rel="noopener noreferrer">
+    <article class="container">
+      <img src="${imgSrc != null ? imgSrc : getProjectImageDir(name)}" height="200px" width="200px" class="img" loading="lazy" alt="${name} \uB85C\uACE0">
+      <div class="column">
+        <p class="name">${name}</p>
+        <p class="summary">${projectSummary}</p>
+        <p class="summary">${projectDescription}</p>
+        <div class="skill">
+          <p class="name">\uC5ED\uD560</p>
+          <img class="img" src="${getSkillImageDir(
+        skill2
+      )}" height="30px" width="30px" loading="lazy" alt="${skill2} \uC544\uC774\uCF58">
+        </div>
+          <p><strong>${skill2}</strong></p>
+          <ol>
+            <slot></slot>
+          </ol>
+      </div>
+    </article>
+  </a>
+    `;
+    }
+  };
+
+  // component/skill.js
+  var skill = class extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: "open" });
+      this.render();
+    }
+    render() {
+      var _a;
+      if (!this.shadowRoot) return;
+      const name = (_a = this.getAttribute("name")) != null ? _a : "name \uC18D\uC131 \uC5C6\uC74C";
+      const level = Math.min(parseInt(this.getAttribute("level")) || 0, 5);
+      const period = this.getAttribute("period");
+      let rectangles = "";
+      for (let i = 0; i < 5; i++) {
+        if (i < level) {
+          rectangles += `<div class="rectangle rectangle-color"></div>`;
+        } else {
+          rectangles += `<div class="rectangle rectangle-border"></div>`;
+        }
+      }
+      this.shadowRoot.innerHTML = `
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+      }
+      .container {
+        font-weight: bold;
+        align-items: center;
+        padding-top: 16px;
+        padding-bottom: 16px;
+      }
+      .period {
+        font-weight: normal
+      }
+      .left-margin {
+        margin-left: 10px;
+      }
+      .small-img {
+        display: none;
+      }
+      @media (max-width: 400px) {
+        .small-img {
+          display: block;
+          margin-right: 5px
+        }
+      }
+      .img {
+        margin-right: 10px
+      }
+      @media (max-width: 400px) {
+        .img {
+          display: none;
+        }
+      }
+      .rectangle {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+      .rectangle-color {
+        background-color: #1263CE;
+      }
+      .rectangle-border {
+        border: 1px black solid;
+      }
+      ul {
+        list-style: none;
+      }
+      ::slotted(li) {
+        list-style-type: none;
+        overflow-wrap: break-word;
+        white-space: wrap;
+      }
+      ::slotted(li)::before {
+        content: "\u25BA";
+        color: black;
+        display: inline-block;
+        width: 1rem;
+      }
+    </style>
+    <article>
+      <div class="row container">
+        <img class="small-img" src="${getSkillImageDir(
+        name
+      )}" height="30px" loading="lazy" alt="${name}\uC544\uC774\uCF58"/>
+        <p>${name}</p>
+        <p class="left-margin period">${period ? `${period} \uACBD\uB825` : ""}</p>
+        <div class="left-margin row levels">${rectangles}</div>
+      </div>
+      <div class="row">
+        <img class="img" src="${getSkillImageDir(
+        name
+      )}" height="50px" loading="lazy" alt="${name}\uC544\uC774\uCF58"/>
+        <ul>
+          <slot></slot>
+        </ul>
+      </div>
+    </article>
+    `;
+    }
+  };
+
+  // index.js
+  customElements.define("project-component", Project);
+  customElements.define("skill-component", skill);
+  window.addEventListener("load", latestPostEventListener);
+  window.addEventListener("scroll", function() {
+    toTop();
+    navHighlight();
+  });
+  function toTop() {
+    const topButton = document.getElementById("topButton");
+    if (window.scrollY > 100) {
+      topButton.style.display = "block";
+      topButton.style.opacity = "1";
+    } else {
+      topButton.style.opacity = "0";
+      setTimeout(() => {
+        if (window.scrollY <= 100) {
+          topButton.style.display = "none";
+        }
+      }, 300);
+    }
+  }
+  function navHighlight() {
+    const scrollPosition = window.scrollY + 1;
+    const sectionPositions = {
+      home: document.getElementById("home"),
+      skills: document.getElementById("skills"),
+      project: document.getElementById("project"),
+      contact: document.getElementById("contact")
+    };
+    let currentSectionId = null;
+    for (let sectionId in sectionPositions) {
+      if (scrollPosition >= sectionPositions[sectionId].offsetTop && scrollPosition < sectionPositions[sectionId].offsetTop + // 아래에서 위로 올라 갈 때 현재 보는 Nav를 너무 빨리 바꾸지 않도록 함
+      sectionPositions[sectionId].offsetHeight / 3) {
+        currentSectionId = sectionId;
+        break;
+      }
+    }
+    if (!currentSectionId) return;
+    const navLinks = document.querySelectorAll(".nav-ul li a");
+    navLinks.forEach(function(link) {
+      const sectionId = link.getAttribute("href").substring(1);
+      if (sectionId === currentSectionId) {
+        console.log(sectionId);
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+  document.getElementById("topButton").addEventListener("click", function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+  var libraryElement = document.getElementById("library");
+  var infoBoxElement = document.getElementById("infoBox");
+  hoverAndShow(libraryElement, infoBoxElement);
+  var skillComponents = Array.from(
+    document.getElementsByTagName("skill-component")
+  );
+  var skillLevelInfo = document.getElementById("skillInfoBox");
+  console.log(skillComponents);
+  skillComponents.forEach((e) => {
+    const levelContainer = e.shadowRoot.querySelector(".levels");
+    hoverAndShow(levelContainer, skillLevelInfo);
+  });
+})();
