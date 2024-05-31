@@ -81,18 +81,6 @@
     }
   });
 
-  // component/hoverAndShow.js
-  var hoverAndShow = (hoverTargetElement, showedElement) => {
-    hoverTargetElement.addEventListener("mousemove", function(event) {
-      showedElement.style.display = "block";
-      showedElement.style.left = event.pageX + "px";
-      showedElement.style.top = event.pageY + "px";
-    });
-    hoverTargetElement.addEventListener("mouseleave", function() {
-      showedElement.style.display = "none";
-    });
-  };
-
   // util/getFilePath.js
   var getSkillImageDir = (skillName) => `./images/skills/${skillName.replace(/\s+/g, "")}.svg`;
   var getProjectImageDir = (projectName) => `./images/projects/${projectName.replace(/\s+/g, "")}.webp`;
@@ -324,6 +312,18 @@
     </article>
     `;
     }
+  };
+
+  // util/hoverAndShow.js
+  var hoverAndShow = (hoverTargetElement, showedElement) => {
+    hoverTargetElement.addEventListener("mousemove", function(event) {
+      showedElement.style.display = "block";
+      showedElement.style.left = event.pageX + "px";
+      showedElement.style.top = event.pageY + "px";
+    });
+    hoverTargetElement.addEventListener("mouseleave", function() {
+      showedElement.style.display = "none";
+    });
   };
 
   // index.js
