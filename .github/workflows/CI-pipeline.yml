@@ -36,3 +36,17 @@ jobs:
           echo "Deploy build start."
           npm run deployBuild
           echo "Build completed."
+
+      - name: Commit changes
+        run: |
+          echo "Checking for untracked files..."
+          if git status --porcelain | grep -q "dist/bundle.js"; then
+            echo "Changes detected in dist/bundle.js"
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add dist/bundle.js
+            git commit -m "[GitHub Action] Auto build and deploy"
+            git push
+          else
+            echo "Changes not detected"
+          fi
