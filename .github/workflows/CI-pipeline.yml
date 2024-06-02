@@ -15,11 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Uncomment code and build
-        run: |
-          echo "Uncommenting code..."
-          sed -i 's/\/\/ const posts = await fetchLatestPosts();/const posts = await fetchLatestPosts();/' api/rss.js
-
       - name: Caching dependencies
         id: cache
         uses: actions/cache@v4
