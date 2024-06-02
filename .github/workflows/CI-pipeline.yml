@@ -17,17 +17,39 @@ jobs:
 
       - name: Uncomment code and build
         run: |
+          echo "Uncommenting code..."
           sed -i 's/\/\/ const posts = await fetchLatestPosts();/const posts = await fetchLatestPosts();/' api/rss.js
+
+      - name: Caching dependencies
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: ${{runner.os}}-node-${{ hashFiles('**/package-lock.json')}}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          echo "Installing npm packages..."
           npm install
+          echo "Running deployBuild..."
+
+      - name: build for deploy
+        run: |
+          echo "Deploy build start."
           npm run deployBuild
+          echo "Build completed."
 
       - name: Commit changes
         run: |
-          if git ls-files -o --exclude-standard | grep -q "dist/bundle.js"; then
+          echo "Checking for untracked files..."
+          if git status --porcelain | grep -q "dist/bundle.js"; then
+            echo "Changes detected in dist/bundle.js"
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
-            git add .
-            git add -f dist/bundle.js
+            git add dist/bundle.js
             git commit -m "[GitHub Action] Auto build and deploy"
             git push
           else
