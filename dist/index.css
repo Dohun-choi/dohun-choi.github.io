@@ -70,6 +70,7 @@ nav {
   width: 100vw;
   position: fixed;
   height: var(--nav-height);
+  z-index: 9999;
 }
 
 .nav-ul {
@@ -85,11 +86,16 @@ nav {
 .nav-ul > li > a {
   text-decoration: none;
   color: white;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .nav-ul > li > a:hover {
   color: lightgray;
+}
+
+/* 해당 id가 화면에 보일 때 해당 링크를 bold로 설정 */
+.nav-ul > li > a.active {
+  font-weight: bold;
 }
 
 .nav-height {
@@ -207,6 +213,14 @@ nav {
   gap: 5px;
 }
 
+@media (min-width: 360px) {
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
 @media (min-width: 630px) {
   .mini-grid {
     display: grid;
@@ -245,15 +259,7 @@ nav {
   background-color: #fdfdfd;
   padding: 10px;
   border: 1px solid #010101;
-}
-
-.project-border > project-component {
-  padding: 20px;
-  border-bottom: 1px solid #000;
-}
-
-.project-border > project-component:last-child {
-  border: none;
+  pointer-events: none;
 }
 
 .grid-four-column {

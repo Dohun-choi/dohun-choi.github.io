@@ -25,7 +25,7 @@ export class skill extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
     <style>
-      :host > * {
+      * {
         box-sizing: border-box;
         margin: 0px;
         padding: 0px;
@@ -37,6 +37,8 @@ export class skill extends HTMLElement {
       .container {
         font-weight: bold;
         align-items: center;
+        padding-top: 16px;
+        padding-bottom: 16px;
       }
       .period {
         font-weight: normal
@@ -65,7 +67,6 @@ export class skill extends HTMLElement {
         width: 20px;
         height: 20px;
         margin-right: 5px;
-        display: flex;
       }
       .rectangle-color {
         background-color: #1263CE;
@@ -75,7 +76,6 @@ export class skill extends HTMLElement {
       }
       ul {
         list-style: none;
-        padding: 0;
       }
       ::slotted(li) {
         list-style-type: none;
@@ -96,7 +96,7 @@ export class skill extends HTMLElement {
         )}" height="30px" loading="lazy" alt="${name}아이콘"/>
         <p>${name}</p>
         <p class="left-margin period">${period ? `${period} 경력` : ""}</p>
-        <p class="left-margin">${rectangles}</p>
+        <div class="left-margin row levels">${rectangles}</div>
       </div>
       <div class="row">
         <img class="img" src="${getSkillImageDir(

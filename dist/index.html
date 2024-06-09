@@ -18,8 +18,6 @@
     <!-- End Google Tag Manager -->
   </head>
   <body>
-
-    <!-- Nav Bar -->
     <nav>
       <ul class="nav-ul">
         <li><a href="#home">홈</a></li>
@@ -28,10 +26,8 @@
         <li><a href="#contact">연락</a></li>
       </ul>
     </nav>
-    <!-- Top Button -->
+
     <button id="topButton" title="Go to top">▲</button>
-    
-    <!-- content -->
 
     <div id="home" class="full flex flex-center flex-column">
       <div class="nav-height"></div>
@@ -45,17 +41,20 @@
       </header>
       
       <div class="center-text" style="flex-grow: 3;">
-        <h2 class="center-text">필요와 요구에 따라 문제를 창의적으로 해결하는 개발자</h2>
+        <h2 class="center-text">필요와 요구에 따라 문제를 해결하는 개발자</h2>
         <div class="content-box">
-          <p class="center-text">
+          <p>
             안녕하세요, 저는 <strong>프론트엔드 개발자</strong>로서 <strong>사용자와 비즈니스의 요구를 충족시키는 데 주력</strong>하는 개발자입니다.
           </p>
-          <p class="center-text">
-            저는 <strong>문제 해결 능력과 요구 사항 분석에 강점</strong>을 가지고 있으며, 다양한 기술과 경험을 통해 프로젝트를 진행할 수 있습니다.
+          <p>
+            <strong>문제 해결 능력과 요구 사항 분석에 강점</strong>을 가지고 있으며, 다양한 기술과 경험을 통해 프로젝트를 진행할 수 있습니다.
+          </p>
+          <p>
+            사용자가 <strong>직관적이고 사용하기 쉬운 서비스</strong>를 만드는 것이 목표입니다.
           </p>
         </div>
 
-        <p>총 4번의 프로젝트 경험과 <a href="https://ko.react.dev/">ko.react.dev</a>, <a href="https://ko.javascript.info/">ko.javascript.info</a>의 오픈 소스 commit 경험(번역 및 오역 수정)이 있습니다.</p>
+        <p>총 4번의 프로젝트 경험과 <a href="https://ko.react.dev/">ko.react.dev</a>, <a href="https://ko.javascript.info/">ko.javascript.info</a>의 오픈 소스 기여 경험(번역 및 오역 수정)이 있습니다.</p>
         <p>개인 기술 블로그를 운영하며 프론트 엔드 분야의 지식을 쌓고 있습니다.</p>
 
         <div class="margin-50"></div>
@@ -68,52 +67,53 @@
 
     <main>
 
-      <div id="skills" class="full flex flex-column flex-center">
-        <div class="center-for-focus">
+      <div id="skills" class="full flex">
+        <div class="flex flex-column flex-center center-for-focus">
           <div class="nav-height"></div>
           <h2>기술 스택</h2>
 
           <section class="grid-two-column">
-            <skill-component name="JavaScript" level="5" period="7개월">
-              <li>클로저에 대해 이해하고 React의 useEffect 등에서 활용 경험</li>
-              <li>자바스크립트 비동기 실행 이해, async & await와 Promise를 사용한 코드 작성 가능</li>
-              <li>자바스크립트의 Call Stack, Web API,  Queue, Event Loop 사이의 동작 과정 이해</li>
-            </skill-component>
-
-            <skill-component name="TypeScript" level="5" period="6개월">
-              <li>요구와 필요에 따른 타입을 작성 가능</li>
-              <li>인터페이스, 제네릭, 레코드 등을 사용하여 명확한 타입 지정 가능</li>
-              <li>리액트 1회, 리액트 네이티브 1회의 프로젝트에서 any 사용 없이 타입 적용 경험</li>
-            </skill-component>
-
-            <skill-component name="React" level="4" period="6개월">
+            <skill-component name="React" level="5" period="6개월">
               <li>useState 및 useEffect, Props와 관련된 리렌더링 과정 이해</li>
-              <li>리액트 useEffect의 동작원리를 이해하고 Side Effect 처리를 위해 사용 가능</li>
+              <li>useEffect의 동작원리를 이해하고 Side Effect 처리를 위해 사용 가능</li>
               <li>React.Memo와 Lazy loading을 사용하여 로딩을 최적화한 프로젝트 진행 경험</li>
             </skill-component>
 
+            <skill-component name="JavaScript" level="4" period="7개월">
+              <li>클로저에 대해 이해하고 React의 useEffect 등에서 활용 경험</li>
+              <li>자바스크립트 비동기 실행 이해, async & await와 Promise를 사용한 코드 작성 가능</li>
+              <li>웹 컴포넌트를 활용하여 컴포넌트 제작 및 활용 가능</li>
+            </skill-component>
+
+            <skill-component name="TypeScript" level="4" period="6개월">
+              <li>요구와 필요에 따른 타입을 작성 가능</li>
+              <li>인터페이스, 제네릭, 레코드 등을 사용하여 명확한 타입 지정 가능</li>
+              <li>리액트 1회, 리액트 네이티브 1회의 프로젝트에서 any 사용 없이 타입스크립트 사용 경험</li>
+            </skill-component>
+
             <skill-component name="Flutter" level="3" period="1개월">
-              <li>MVVM 패턴을 적용하여 유지 및 보수가 용이한 프로젝트 진행 경험</li>
-              <li>Singleton 패턴을 적용한 경험</li>
+              <li>MVVM 패턴을 활용한 프로젝트 진행 가능</li>
+              <li>Singleton 패턴 사용 경험</li>
               <li>provider를 사용한 코드 작성이 가능하고 riverPod을 사용한 프로젝트 진행 경험</li>
             </skill-component>
 
             <skill-component name="ReactNative" level="3" period="1개월">
               <li>Expo를 활용한 개발 경험 및 bare ReactNative로 전환 경험</li>
               <li>FSD 아키텍처를 프로젝트에 맞게 축소 및 조정하여 프로젝트를 진행한 경험</li>
+              <li>테스트 코드를 작성하며 프로젝트를 진행핝 경험</li>
             </skill-component>
 
             <skill-component name="Next" level="2" period="1개월">
               <li>app router를 사용하여 기본 route 및 dynamic, parallel, intercepting routing 가능</li>
-              <li>서버 컴포넌트와 클라이언트 컴포넌트를 구분하여 적절한 사용 가능</li>
+              <li>필요에 따라 서버 컴포넌트와 클라이언트 컴포넌트를 구분하여 사용 가능</li>
             </skill-component>
 
-            <skill-component name="Vue" level="2" period="1개월">
+            <skill-component name="Vue" level="1" period="1개월">
               <li>Life Cycle을 이해하고 기초 수준의 프로젝트 진행 가능</li>
               <li>Pinia 등 vue의 기초적인 수준의 생태계 이해</li>
             </skill-component>
 
-            <skill-component name="Django" level="2" period="1개월">
+            <skill-component name="Django" level="1" period="1개월">
               <li>간단한 CRUD가 포함된 프로젝트 진행 경험</li>
             </skill-component>
           </section>
@@ -127,23 +127,21 @@
               <p>백준 온라인 저지: 플레티넘 5</p>
             </div>
             <div class="library">
-              <p id="library"><strong>그외 라이브러리 및 프레임워크</strong></p>
-              <div class="info-box" id="infoBox">사용 경험이 많고 유용하다고 생각한 순서로 정리하였습니다.</div>
+              <p id="library"><strong>그외</strong></p>
               <div class="mini-grid">
                 <p>axios</p>
-                <p>Jest</p>
-                <p>StroyBook</p>
                 <p>TanstackQuery(ReactQuery)</p>
+                <p>Jest</p>
+                <p>Jira</p>
+                <p>zustand</p>
                 <p>Vite</p>
                 <p>MSW</p>
-                <p>zustand</p>
+                <p>GitHub action</p>
+                <p>StroyBook</p>
                 <p>styled-component</p>
                 <p>million</p>
                 <p>Redux-toolkit</p>
-                <p>module.CSS</p>
                 <p>Realm</p>
-                <p>prettier</p>
-                <p>EsLint</p>
                 <p>dompurify</p>
                 <p>intl</p>
                 <p>riverPod</p>
@@ -160,16 +158,18 @@
       </div>
 
       <div id="project" class="full flex">
-        <section class="center-for-focus flex flex-center flex-column project-border" style="flex-grow: 1; justify-content:center;">
+        <section class="flex flex-center flex-column center-for-focus project-border" style="flex-grow: 1;">
           <div class="nav-height"></div>
+          <h2>프로젝트</h2>
           
           <project-component
             name="Run Time"
             projectSummary="실시간 달리기 배틀 서비스"
             projectDescription="랜덤 매칭(1:1), 단체전(대기방을 통한 다인전), 과거 기록과 배틀하는 연습 모드"
-            skill="React"
+            skill="Flutter"
+            projectUrl=""
           >
-            <li>Stomp 서버와 연결, 현재 위치 및 달린 거리와 이를 통한 TTS 중계</li>
+            <li>Stomp 서버와 연결, 현재 위치 및 달린 거리 계산과 TTS 중계</li>
             <li>랜덤 매칭, 단체전, 연습 모드 구현</li>
             <li>디자인 시스템(Theme), MVVM 패턴과 SingleTon 패턴을 학습하여 팀원에게 공유</li>
           </project-component>
@@ -178,7 +178,7 @@
             name="Close At Hand"
             projectSummary="스마트 거울(Iot 기기)을 활용한 옷/스타일 관리 서비스"
             skill="React Native"
-            reverse
+            projectUrl="https://github.com/CloseAtHand/Close-at-Hand"
           >
             <li>블루투스, 로컬 데이터 관리</li>
             <li>Jest 및 Story book을 활용한 테스트</li>
@@ -190,9 +190,11 @@
             projectSummary="유기견 & 유기묘 입양 플랫폼"
             skill="React"
             imgSrc="./images/projects/DogCatDang.webp"
+            projectUrl="https://github.com/DogCatDang/DogCatDang"
           >
             <li>WYSWYG 형식의 게시판, 실시간 방송 서비스</li>
-            <li>google light house의 4가지 측정 항목 모두 90점 이상 달성</li>
+            <li>lazy loading, gzip 압축 등을 통한 로딩 속도 향상</li>
+            <li>Nav, Button 등 공통 컴포넌트 개발</li>
           </project-component>
 
         </section>
@@ -210,6 +212,15 @@
       </div>
     </div>
 
+  <div class="info-box" id="skillInfoBox">
+    <p>level 1: 기초적인 사용이 가능</p>
+    <p>level 2: 해당 기술에 대한 이해가 있지만 프로젝트 진행 경험은 없음</p>
+    <p>level 3: 프로젝트 진행에 큰 무리가 없음</p>
+    <p>level 4: 전반적인 이해가 있어 원하는 방식으로 사용 가능</p>
+    <p>level 5: 깊은 이해가 있으며 최신 정보도 어느 정도 알고 있음</p>
+  </div>
+  <div class="info-box" id="infoBox">사용 경험이 많거나 유용하다고 생각한 순서로 정리하였습니다.</div>
+  
   </body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K77V75ZJ"

@@ -17,22 +17,29 @@ export class Project extends HTMLElement {
       "projectSummary 속성 지정되지 않음";
     const projectDescription = this.getAttribute("projectDescription") ?? "";
     const imgSrc = this.getAttribute("imgSrc");
-    const reverse = this.getAttribute("reverse") !== null;
+    const projectUrl = this.getAttribute("projectUrl") ?? null;
 
     this.shadowRoot.innerHTML = `
     <style>
     :host {
       width: 100%;
     }
-    :host > * {
+    * {
       box-sizing: border-box;
       margin: 0px;
       padding: 0px;
     }
     .container {
       display: flex;
-      justify-content: ${reverse ? "end" : "start"};
-      flex-direction: ${reverse ? "row-reverse" : "row"};
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    .container:hover {
+      transform: scale(1.05);
     }
     @media (max-width: 1000px) {
       .container {
@@ -82,7 +89,17 @@ export class Project extends HTMLElement {
       display: inline-block;
       width: 1.1rem;
     }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
     </style>
+
+  <!--
+  rel="noopener noreferrer"은 Tabnabbing 공격 방어를 위함
+  새 탭이 원래 탭의 window.opener 객체에 접근할 수 없게 만듬
+  -->
+  <a href="${projectUrl}" target="_blank" rel="noopener noreferrer">
     <article class="container">
       <img src="${
         imgSrc ?? getProjectImageDir(name)
@@ -103,6 +120,7 @@ export class Project extends HTMLElement {
           </ol>
       </div>
     </article>
+  </a>
     `;
   }
 }
