@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <link>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>최도훈 포트폴리오</title>
-    <meta name="description" content="프론트엔드 개발자 최도훈의 포트폴리오">
-    <link rel="stylesheet" href="./index.css">
+  <link />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>최도훈 포트폴리오</title>
+  <meta name="description" content="프론트엔드 개발자 최도훈의 포트폴리오" />
+  <link rel="stylesheet" href="./index.css" />
 
-    <script src="./bundle.js" type="module"></script>
+  <script src="./bundle.js" type="module"></script>
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-K77V75ZJ');</script>
-    <!-- End Google Tag Manager -->
-  </head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-K77V75ZJ");
+  </script>
+  <!-- End Google Tag Manager -->
+
   <body>
     <nav class="flex nav-padding">
       <h1 class="main-title">최도훈의 포트폴리오</h1>
-      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
       <label for="menu-toggle" class="hamburger-menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </label>
       <ul class="nav-ul">
-          <li><a href="#home">홈</a></li>
-          <li><a href="#skills">기술 스택</a></li>
-          <li><a href="#project">프로젝트</a></li>
-          <li><a href="#contact">연락</a></li>
+        <li><a href="#home">홈</a></li>
+        <li><a href="#skills">기술 스택</a></li>
+        <li><a href="#project">프로젝트</a></li>
+        <li><a href="#contact">연락</a></li>
       </ul>
     </nav>
 
@@ -39,41 +46,53 @@
     <div id="home" class="full flex flex-center flex-column">
       <div class="nav-height"></div>
 
-      <header class="flex flex-column flex-center" style="flex-grow: 2;">
-        <h2>개발자, 최도훈</h2>
+      <header class="flex flex-column flex-center" style="flex-grow: 2">
+        <h2 style="font-size: 36px">개발자, 최도훈</h2>
         <div class="grid margin-20 center-text">
           <strong><a href="https://github.com/Dohun-choi">GitHub</a></strong>
           <strong><a href="https://curt-poem.tistory.com/">Blog</a></strong>
         </div>
       </header>
-      
-      <div class="center-text" style="flex-grow: 3;">
+
+      <div class="center-text" style="flex-grow: 3">
         <h2 class="center-text">필요와 요구에 따라 문제를 해결하는 개발자</h2>
         <div class="content-box">
           <p>
-            안녕하세요, 저는 <strong>프론트엔드 개발자</strong>로서 <strong>사용자와 비즈니스의 요구를 충족시키는 데 주력</strong>하는 개발자입니다.
+            안녕하세요, 저는 <strong>프론트엔드 개발자</strong>로서
+            <strong>사용자와 비즈니스의 요구를 충족시키는 데 주력</strong>하는
+            개발자입니다.
           </p>
           <p>
-            <strong>문제 해결 능력과 요구 사항 분석에 강점</strong>을 가지고 있으며, 다양한 기술과 경험을 통해 프로젝트를 진행할 수 있습니다.
+            <strong>문제 해결 능력과 요구 사항 분석에 강점</strong>을 가지고
+            있으며, 다양한 기술과 경험을 통해 프로젝트를 진행할 수 있습니다.
           </p>
           <p>
-            사용자가 <strong>직관적이고 사용하기 쉬운 서비스</strong>를 만드는 것이 목표입니다.
+            사용자가 <strong>직관적이고 사용하기 쉬운 서비스</strong>를 만드는
+            것이 목표입니다.
           </p>
         </div>
 
-        <p>총 4번의 프로젝트 경험과 <a href="https://ko.react.dev/">ko.react.dev</a>, <a href="https://ko.javascript.info/">ko.javascript.info</a>의 오픈 소스 기여 경험(번역 및 오역 수정)이 있습니다.</p>
-        <p>개인 기술 블로그를 운영하며 프론트 엔드 분야의 지식을 쌓고 있습니다.</p>
+        <p>
+          총 4번의 프로젝트 경험과
+          <a href="https://ko.react.dev/">ko.react.dev</a>,
+          <a href="https://ko.javascript.info/">ko.javascript.info</a>의 오픈
+          소스 기여 경험(번역 및 오역 수정)이 있습니다.
+        </p>
+        <p>
+          개인 기술 블로그를 운영하며 프론트 엔드 분야의 지식을 쌓고 있습니다.
+        </p>
 
         <div class="margin-50"></div>
 
         <h2 class="center-text">블로그의 최신글</h2>
-        <ul id="postList" class="blog-post-list flex flex-column flex-center margin-10"></ul>
+        <ul
+          id="postList"
+          class="blog-post-list flex flex-column flex-center margin-10"
+        ></ul>
       </div>
-      
     </div>
 
     <main>
-
       <div id="skills" class="full flex">
         <div class="flex flex-column flex-center center-for-focus">
           <div class="nav-height"></div>
@@ -82,37 +101,63 @@
           <section class="grid-two-column">
             <skill-component name="React" level="5" period="6개월">
               <li>useState 및 useEffect, Props와 관련된 리렌더링 과정 이해</li>
-              <li>useEffect의 동작원리를 이해하고 Side Effect 처리를 위해 사용 가능</li>
-              <li>React.Memo와 Lazy loading을 사용하여 로딩을 최적화한 프로젝트 진행 경험</li>
+              <li>
+                useEffect의 동작원리를 이해하고 Side Effect 처리를 위해 사용
+                가능
+              </li>
+              <li>
+                React.Memo와 Lazy loading을 사용하여 로딩을 최적화한 프로젝트
+                진행 경험
+              </li>
             </skill-component>
 
             <skill-component name="JavaScript" level="4" period="7개월">
               <li>클로저에 대해 이해하고 React의 useEffect 등에서 활용 경험</li>
-              <li>자바스크립트 비동기 실행 이해, async & await와 Promise를 사용한 코드 작성 가능</li>
+              <li>
+                자바스크립트 비동기 실행 이해, async & await와 Promise를 사용한
+                코드 작성 가능
+              </li>
               <li>웹 컴포넌트를 활용하여 컴포넌트 제작 및 활용 가능</li>
             </skill-component>
 
             <skill-component name="TypeScript" level="4" period="6개월">
               <li>요구와 필요에 따른 타입을 작성 가능</li>
-              <li>인터페이스, 제네릭, 레코드 등을 사용하여 명확한 타입 지정 가능</li>
-              <li>리액트 1회, 리액트 네이티브 1회의 프로젝트에서 any 사용 없이 타입스크립트 사용 경험</li>
+              <li>
+                인터페이스, 제네릭, 레코드 등을 사용하여 명확한 타입 지정 가능
+              </li>
+              <li>
+                리액트 1회, 리액트 네이티브 1회의 프로젝트에서 any 사용 없이
+                타입스크립트 사용 경험
+              </li>
             </skill-component>
 
             <skill-component name="Flutter" level="3" period="1개월">
               <li>MVVM 패턴을 활용한 프로젝트 진행 가능</li>
               <li>Singleton 패턴 사용 경험</li>
-              <li>provider를 사용한 코드 작성이 가능하고 riverPod을 사용한 프로젝트 진행 경험</li>
+              <li>
+                provider를 사용한 코드 작성이 가능하고 riverPod을 사용한
+                프로젝트 진행 경험
+              </li>
             </skill-component>
 
             <skill-component name="ReactNative" level="3" period="1개월">
               <li>Expo를 활용한 개발 경험 및 bare ReactNative로 전환 경험</li>
-              <li>FSD 아키텍처를 프로젝트에 맞게 축소 및 조정하여 프로젝트를 진행한 경험</li>
+              <li>
+                FSD 아키텍처를 프로젝트에 맞게 축소 및 조정하여 프로젝트를
+                진행한 경험
+              </li>
               <li>테스트 코드를 작성하며 프로젝트를 진행핝 경험</li>
             </skill-component>
 
             <skill-component name="Next" level="2" period="1개월">
-              <li>app router를 사용하여 기본 route 및 dynamic, parallel, intercepting routing 가능</li>
-              <li>필요에 따라 서버 컴포넌트와 클라이언트 컴포넌트를 구분하여 사용 가능</li>
+              <li>
+                app router를 사용하여 기본 route 및 dynamic, parallel,
+                intercepting routing 가능
+              </li>
+              <li>
+                필요에 따라 서버 컴포넌트와 클라이언트 컴포넌트를 구분하여 사용
+                가능
+              </li>
             </skill-component>
 
             <skill-component name="Vue" level="1" period="1개월">
@@ -124,7 +169,7 @@
               <li>간단한 CRUD가 포함된 프로젝트 진행 경험</li>
             </skill-component>
           </section>
-        
+
           <div class="horizontal-line"></div>
 
           <div class="grid-four-column">
@@ -157,18 +202,18 @@
             </div>
           </div>
 
-          <div>
-
-          </div>
-
+          <div></div>
         </div>
       </div>
 
       <div id="project" class="full flex">
-        <section class="flex flex-center flex-column center-for-focus project-border" style="flex-grow: 1;">
+        <section
+          class="flex flex-center flex-column center-for-focus project-border"
+          style="flex-grow: 1"
+        >
           <div class="nav-height"></div>
           <h2>프로젝트</h2>
-          
+
           <project-component
             name="Run Time"
             projectSummary="실시간 달리기 배틀 서비스"
@@ -176,9 +221,15 @@
             skill="Flutter"
             projectUrl="https://github.com/RunTime-SSAFY/RunTime"
           >
-            <li>Stomp 서버와 연결, 현재 위치 및 달린 거리 계산과 TTS 중계</li>
-            <li>랜덤 매칭, 단체전, 연습 모드 구현</li>
-            <li>디자인 시스템(Theme), MVVM 패턴과 SingleTon 패턴을 학습하여 팀원에게 공유</li>
+            <!-- prettier-ignore -->
+            <li>Stomp 서버와 연결, 현재 위치 및 달린 거리 계산과 TTS 중계 구현</li>
+            <li>랜덤 매칭, 단체전, 연습 모드 입장</li>
+            <li>실시간 대결 구현</li>
+            <li>카카오 로그인</li>
+            <li>캐릭터 리스트 및 캐릭터 변경</li>
+            <li>디자인 시스템(Theme) 제작</li>
+            <li>MVVM 패턴과 SingleTon 패턴을 학습하여 팀원에게 공유</li>
+            <li>APK 빌드</li>
           </project-component>
 
           <project-component
@@ -187,9 +238,14 @@
             skill="React Native"
             projectUrl="https://github.com/CloseAtHand/Close-at-Hand"
           >
-            <li>블루투스, 로컬 데이터 관리</li>
+            <li>IoT 기기 연결(블루투스)</li>
+            <li>홈 화면, 홈 위젯</li>
+            <li>빨래 관리 기능</li>
+            <li>회원가입 및 로그인</li>
+            <li>라우터 및 네비게이션</li>
             <li>Jest 및 Story book을 활용한 테스트</li>
             <li>FSD 아키텍처 수정 및 적용하여 팀원에게 공유</li>
+            <li>APK 빌드</li>
           </project-component>
 
           <project-component
@@ -199,38 +255,43 @@
             imgSrc="./images/projects/DogCatDang.webp"
             projectUrl="https://github.com/DogCatDang/DogCatDang"
           >
-            <li>WYSWYG 형식의 게시판, 실시간 방송 서비스</li>
-            <li>lazy loading, gzip 압축 등을 통한 로딩 속도 향상</li>
+            <li>WYSWYG 형식의 게시판 CRUD</li>
+            <li>실시간 방송 서비스</li>
+            <li>S3 이미지 저장</li>
+            <!-- prettier-ignore -->
+            <li>lazy loading, gzip 압축(Nginx) 등을 통한 로딩 속도 향상: 파일 크기 약 74% 감소</li>
             <li>Nav, Button 등 공통 컴포넌트 개발</li>
           </project-component>
-
         </section>
       </div>
     </main>
 
-    
-
     <div id="contact" class="full">
       <div class="nav-height"></div>
       <div class="center-for-focus">
-        <footer>
-
-        </footer>
+        <footer></footer>
       </div>
     </div>
 
-  <div class="info-box" id="skillInfoBox">
-    <p>level 1: 기초적인 사용이 가능</p>
-    <p>level 2: 해당 기술에 대한 이해가 있지만 프로젝트 진행 경험은 없음</p>
-    <p>level 3: 프로젝트 진행에 큰 무리가 없음</p>
-    <p>level 4: 전반적인 이해가 있어 원하는 방식으로 사용 가능</p>
-    <p>level 5: 깊은 이해가 있으며 최신 정보도 어느 정도 알고 있음</p>
-  </div>
-  <div class="info-box" id="infoBox">사용 경험이 많거나 유용하다고 생각한 순서로 정리하였습니다.</div>
-  
+    <div class="info-box" id="skillInfoBox">
+      <p>level 1: 기초적인 사용이 가능</p>
+      <p>level 2: 해당 기술에 대한 이해가 있지만 프로젝트 진행 경험은 없음</p>
+      <p>level 3: 프로젝트 진행에 큰 무리가 없음</p>
+      <p>level 4: 전반적인 이해가 있어 원하는 방식으로 사용 가능</p>
+      <p>level 5: 깊은 이해가 있으며 최신 정보도 어느 정도 알고 있음</p>
+    </div>
+    <div class="info-box" id="infoBox">
+      사용 경험이 많거나 유용하다고 생각한 순서로 정리하였습니다.
+    </div>
   </body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K77V75ZJ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript
+    ><iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-K77V75ZJ"
+      height="0"
+      width="0"
+      style="display: none; visibility: hidden"
+    ></iframe
+  ></noscript>
   <!-- End Google Tag Manager (noscript) -->
 </html>
