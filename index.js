@@ -1,7 +1,7 @@
 import { latestPostEventListener } from "./api/rss";
+import { hoverAndShow } from "./component/hoverAndShow";
 import { Project } from "./component/project";
 import { skill } from "./component/skill";
-import { hoverAndShow } from "./util/hoverAndShow";
 
 // 컴포넌트 등록
 customElements.define("project-component", Project);
